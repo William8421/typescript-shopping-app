@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Macbook",
+    "price": 1199,
+    "imgUrl": "/public/imgs/Macbook.jpeg"
+  },
+  {
+    "id": 2,
+    "name": "Headphones",
+    "price": 32.99,
+    "imgUrl": "/imgs/headphones.jpeg"
+  },
+  {
+    "id": 3,
+    "name": "IPhone14 Pro",
+    "price": 1049,
+    "imgUrl": "/imgs/iphone14pro.jpeg"
+  },
+  {
+    "id": 4,
+    "name": "Monitor",
+    "price": 144.99,
+    "imgUrl": "/imgs/monitor.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Laptop",
+    "price": 429,
+    "imgUrl": "/imgs/laptop.webp"
+  },
+  {
+    "id": 6,
+    "name": "PS5 Controller",
+    "price": 69.99,
+    "imgUrl": "/imgs/ps5-controller.webp"
+  }
+]

@@ -1,0 +1,29 @@
+.navbar-container{
+    display: flex;
+    padding: .5rem 3rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #669BBC;
+    margin-bottom: .5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    button{
+        background-color: transparent;
+        width: 2.5rem;
+        height: 2.5rem;
+        position: relative;
+        border: none;
+    }
+    .shopping-cart{
+        color: white;
+        width: 1rem;
+        height: 1rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        background-color: #C1121F;
+        font-size: .75rem;
+    }
+}
