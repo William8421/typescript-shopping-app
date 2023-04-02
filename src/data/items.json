@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "name": "Macbook",
-    "price": 1199,
-    "imgUrl": "/public/imgs/MB-laptop.jpeg"
+    "name": "Lenovo Laptop",
+    "price": 429,
+    "imgUrl": "/imgs/laptop.webp"
   },
   {
     "id": 2,
@@ -19,15 +19,15 @@
   },
   {
     "id": 4,
-    "name": "Monitor",
+    "name": "Samsung Monitor",
     "price": 144.99,
     "imgUrl": "/imgs/monitor.jpg"
   },
   {
     "id": 5,
-    "name": "Laptop",
-    "price": 429,
-    "imgUrl": "/imgs/laptop.webp"
+    "name": "Lenovo Tab",
+    "price": 189,
+    "imgUrl": "/public/imgs/tablet.jpg"
   },
   {
     "id": 6,

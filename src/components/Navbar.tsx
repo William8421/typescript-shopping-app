@@ -5,7 +5,7 @@ export default function Navbar() {
   
   return (
     <div className='navbar-container'>
-      <h3>Shopping App</h3>
+      <h2>Shopping App</h2>
 
       {cartQuantity > 0 && (
         <button onClick={openCart}>
