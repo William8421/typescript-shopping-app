@@ -1,14 +1,14 @@
 import { useShoppingCart } from '../context/shoppingCartContext'
 
 export default function Navbar() {
-  const {openCart, cartQuantity} = useShoppingCart()
+  const {openCloseCart, cartQuantity} = useShoppingCart()
   
   return (
     <div className='navbar-container'>
       <h2>Shopping App</h2>
 
       {cartQuantity > 0 && (
-        <button onClick={openCart}>
+              <button onClick={openCloseCart}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"

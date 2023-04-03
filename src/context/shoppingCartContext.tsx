@@ -12,8 +12,7 @@ type CartItem ={
 }
 
 type shoppingCartContext = {
-    openCart: () => void
-    closeCart: () => void
+    openCloseCart: () => void
     getItemQuantity: (id: number) => number
     increaseCartQuantity: (id: number) => void
     decreaseCartQuantity: (id: number) => void
@@ -32,11 +31,14 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider({children}:
     ShoppingCartProviderProps){
-        const [isOpen, setIsOpen] = useState(false)
+        const [isOpen, setIsOpen] = useState('off')
         const [cartItems, setCartItems] = useLocalStorage<CartItem[]>("shopping-cart", [])
 
-        const openCart = () => setIsOpen(true)
-        const closeCart = () => setIsOpen(false)
+        function openCloseCart(){
+          setIsOpen(isOpen === 'off'? 'on' : 'off')
+          console.log(isOpen);
+          
+        }
 
         const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
         
@@ -92,8 +94,7 @@ export function ShoppingCartProvider({children}:
         emptyCart,
         cartQuantity,
         cartItems,
-        openCart,
-        closeCart,
+        openCloseCart,
         }}>
         {children}
         {<ShoppingCart isOpen= {isOpen}/>}

@@ -21,16 +21,16 @@ export  function ShoppingItem({id, name, price, imgUrl}: ShoppingItemProps) {
         </div>
         </div>
         {quantity === 0 ? (
-                <button className="Button"  onClick={() => increaseCartQuantity(id)} >Add To Cart</button>
+                <button onClick={() => increaseCartQuantity(id)} >Add To Cart</button>
             ) : <div className="buttons-container">
                 <div className="adding-container">
-                    <button className="Button" onClick={() => decreaseCartQuantity(id)}>-</button>
+                    <button onClick={() => decreaseCartQuantity(id)}>-</button>
                     <div>
                     <span>{quantity}</span> in Cart
                     </div>
-                    <button className="Button" onClick={() => increaseCartQuantity(id)}>+</button>
+                    <button onClick={() => increaseCartQuantity(id)}>+</button>
                 </div>
-                <button className="Button" onClick={() => removeFromCart(id)}>Remove</button>
+                <button onClick={() => removeFromCart(id)}>Remove</button>
             </div> }
     </div>
   )

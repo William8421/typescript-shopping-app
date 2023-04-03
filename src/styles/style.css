@@ -1,20 +1,30 @@
-.body {
-  background-color: #FDF0D5;
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap");
+* {
+  box-sizing: border-box;
 }
-.body .App {
+
+body {
+  background-color: #FDF0D5;
+  font-family: "Lora", serif;
+}
+body button {
+  cursor: pointer;
+}
+body .App {
   margin-top: 5rem;
 }
 
 .navbar-container {
   display: flex;
-  padding: 0.5rem 3rem;
   justify-content: space-between;
   align-items: center;
   background-color: #669BBC;
   margin-bottom: 0.5rem;
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
+  padding: 0 3rem;
 }
 .navbar-container button {
   background-color: transparent;
@@ -83,7 +93,8 @@
   display: flex;
   justify-content: center;
 }
-.shopping-item .Button {
+.shopping-item button {
+  padding: 0.2rem;
   border-radius: 6px;
   background-color: #C1121F;
   color: #FDF0D5;
@@ -94,18 +105,18 @@
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin: 2rem 0;
 }
 .cart-item img {
   width: 250px;
   height: 150px;
-  object-fit: cover;
-  overflow: hidden;
+  object-fit: contain;
 }
 .cart-item .cart-container {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  height: 100%;
 }
 .cart-item .cart-container .name-price {
   display: flex;
@@ -143,12 +154,11 @@
 }
 
 .total {
-  margin-left: auto;
   font-weight: bold;
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   gap: 1rem;
 }
 .total button {
@@ -160,6 +170,68 @@
   cursor: pointer;
   color: #0D6EFD;
   text-decoration: underline;
+}
+
+.cartContainer {
+  width: 380px;
+  height: 100%;
+  background-color: white;
+  overflow: scroll;
+  padding-top: 3rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.cartContainer .cart-header {
+  background-color: #669BBC;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 380px;
+  position: fixed;
+  top: 0;
+  padding: 0 2rem;
+}
+.cartContainer .cart-header button {
+  border: none;
+  background-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+.cartContainer .items-container {
+  padding-top: 2rem;
+}
+
+.off {
+  position: fixed;
+  right: -500px;
+  display: none;
+  transition: 0.5s ease-in-out;
+}
+
+.on {
+  display: block;
+  z-index: 100;
+  right: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.body:has(.on:hover) {
+  overflow-y: hidden;
+}
+
+.hidden-div.on {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.hidden-div {
+  transition: none;
 }
 
 /*# sourceMappingURL=style.css.map */

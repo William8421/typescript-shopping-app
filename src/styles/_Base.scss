@@ -1,7 +1,14 @@
-.body{
+*{
+    box-sizing: border-box;
+}
+
+body{
     background-color: #FDF0D5;
     font-family: 'Lora', serif;
+    button{
+        cursor: pointer;
+    }
     .App{
-    margin-top: 5rem;
-}
+        margin-top: 5rem;
+    }
 }
