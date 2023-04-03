@@ -205,7 +205,6 @@ body .App {
 .off {
   position: fixed;
   right: -500px;
-  display: none;
   transition: 0.5s ease-in-out;
 }
 
@@ -216,7 +215,7 @@ body .App {
   transition: 0.5s ease-in-out;
 }
 
-.body:has(.on:hover) {
+body:has(.on:hover) {
   overflow-y: hidden;
 }
 

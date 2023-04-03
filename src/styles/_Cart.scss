@@ -104,7 +104,6 @@
 .off{
     position: fixed;
     right: -500px;
-    display: none;
     transition: .5s ease-in-out;
   }
   .on{
@@ -114,7 +113,7 @@
     transition: .5s ease-in-out;
   }
   
-  .body:has(.on:hover){
+  body:has(.on:hover){
     overflow-y: hidden;
   }
 
