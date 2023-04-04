@@ -9,6 +9,7 @@ body {
 }
 body button {
   cursor: pointer;
+  font-size: 1.5rem;
 }
 body .App {
   margin-top: 5rem;
@@ -24,12 +25,12 @@ body .App {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0 3rem;
+  padding: 0 1rem;
 }
 .navbar-container button {
   background-color: transparent;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   position: relative;
   border: none;
 }
@@ -92,87 +93,19 @@ body .App {
 .shopping-item .buttons-container .adding-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.shopping-item .buttons-container .adding-container .quantity {
+  padding: 0 1rem;
 }
 .shopping-item button {
-  padding: 0.2rem;
+  padding: 1rem;
   border-radius: 6px;
   background-color: #C1121F;
   color: #FDF0D5;
 }
 
-.cart-item {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 2rem 0;
-}
-.cart-item img {
-  width: 250px;
-  height: 150px;
-  object-fit: contain;
-}
-.cart-item .cart-container {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  height: 100%;
-}
-.cart-item .cart-container .name-price {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.cart-item .cart-container .name-price .cart-item-name {
-  font-weight: bold;
-}
-.cart-item .cart-container .name-price .cart-item-price {
-  color: gray;
-}
-.cart-item .cart-container .quantity-total {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.cart-item .cart-container .quantity-total .cart-item-quantity {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 1rem;
-}
-.cart-item .cart-container .quantity-total .cart-item-quantity button {
-  border-radius: 4px;
-}
-.cart-item .cart-container .quantity-total .cart-item-total {
-  color: gray;
-}
-.cart-item button {
-  background-color: #C1121F;
-  color: #FDF0D5;
-  border-radius: 6px;
-}
-
-.total {
-  font-weight: bold;
-  font-size: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1rem;
-}
-.total button {
-  background-color: #C1121F;
-  color: #FDF0D5;
-  border-radius: 6px;
-}
-.total span {
-  cursor: pointer;
-  color: #0D6EFD;
-  text-decoration: underline;
-}
-
-.cartContainer {
+.off-canvas {
   width: 380px;
   height: 100%;
   background-color: white;
@@ -182,7 +115,7 @@ body .App {
   top: 0;
   right: 0;
 }
-.cartContainer .cart-header {
+.off-canvas .off-canvas-header {
   background-color: #669BBC;
   display: flex;
   justify-content: space-between;
@@ -192,13 +125,13 @@ body .App {
   top: 0;
   padding: 0 2rem;
 }
-.cartContainer .cart-header button {
+.off-canvas .off-canvas-header button {
   border: none;
   background-color: transparent;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
 }
-.cartContainer .items-container {
+.off-canvas .items-container {
   padding-top: 2rem;
 }
 
@@ -231,6 +164,80 @@ body:has(.on:hover) {
 
 .hidden-div {
   transition: none;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.cart-item img {
+  width: 250px;
+  height: 150px;
+  object-fit: contain;
+}
+.cart-item .cart-container {
+  width: 100%;
+}
+.cart-item .cart-container .name-quantity {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cart-item .cart-container .name-quantity .cart-item-name {
+  font-size: large;
+  font-weight: bold;
+}
+.cart-item .cart-container .name-quantity .cart-item-quantity {
+  color: gray;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cart-item .cart-container .name-quantity .cart-item-quantity button {
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+}
+.cart-item .cart-container .price-total {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.cart-item .cart-container .price-total .cart-item-price {
+  font-weight: bold;
+  color: gray;
+}
+.cart-item .cart-container .price-total .cart-item-total {
+  color: gray;
+}
+.cart-item button {
+  background-color: #C1121F;
+  color: #FDF0D5;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.total button {
+  background-color: #C1121F;
+  color: #FDF0D5;
+  border-radius: 6px;
+  padding: 1rem;
+}
+.total span {
+  cursor: pointer;
+  color: #0D6EFD;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=style.css.map */
