@@ -1,9 +1,4 @@
-.itemContainer{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 3rem;
-}
+
 .shopping-item{
     background-color: white;
     display: flex;
@@ -46,11 +41,15 @@
         .adding-container{
             display: flex;
             justify-content: center;
+            align-items: center;
+            .quantity{
+                padding: 0 1rem;
+            }
         }
     }
 
     button{
-        padding: .2rem;
+        padding: 1rem;
         border-radius: 6px;
         background-color: #C1121F;
         color: #FDF0D5;

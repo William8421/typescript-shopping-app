@@ -13,8 +13,8 @@ export default function ShoppingCart({isOpen}: ShoppingCartProps) {
   return (
     <div>
       <div className={`hidden-div ${isOpen}`} onClick={openCloseCart}></div>
-      <div className={`cartContainer ${isOpen}`}>
-        <div className='cart-header'>
+      <div className={`off-canvas ${isOpen}`}>
+        <div className='off-canvas-header'>
           <h2>Cart</h2>
           <button onClick={openCloseCart}>X</button>
         </div>

@@ -16,17 +16,19 @@ export default function CartItem({id, quantity}: CartItemProps) {
         <img src={item.imgUrl}/>
 
         <div className="cart-container">
-          <div className="name-price">
+          <div className="name-quantity">
             <div className="cart-item-name">{item.name} </div>
-            <div className="cart-item-price">{formatCurrency(item.price)}</div>
-          </div>
-        
-          <div className="quantity-total">
             <div className="cart-item-quantity">
               <button onClick={() => decreaseCartQuantity(id)}>-</button>
               x{quantity}
               <button onClick={() => increaseCartQuantity(id)}>+</button>
             </div>
+            
+          </div>
+        
+          <div className="price-total">
+            
+            <div className="cart-item-price">{formatCurrency(item.price)}</div>
             <div className="cart-item-total">{formatCurrency(item.price * quantity)}</div>
           </div>
 
