@@ -9,7 +9,6 @@ body {
 }
 body button {
   cursor: pointer;
-  font-size: 1.5rem;
 }
 body .App {
   margin-top: 5rem;
@@ -99,10 +98,10 @@ body .App {
   padding: 0 1rem;
 }
 .shopping-item button {
-  padding: 1rem;
   border-radius: 6px;
   background-color: #C1121F;
   color: #FDF0D5;
+  font-size: 1.5rem;
 }
 
 .off-canvas {
@@ -123,7 +122,8 @@ body .App {
   width: 380px;
   position: fixed;
   top: 0;
-  padding: 0 2rem;
+  right: 0;
+  padding: 0 1rem;
 }
 .off-canvas .off-canvas-header button {
   border: none;
@@ -198,7 +198,7 @@ body:has(.on:hover) {
 }
 .cart-item .cart-container .name-quantity .cart-item-quantity button {
   border-radius: 4px;
-  padding: 0.3rem 0.5rem;
+  font-size: 1.5rem;
 }
 .cart-item .cart-container .price-total {
   display: flex;
@@ -217,7 +217,7 @@ body:has(.on:hover) {
   background-color: #C1121F;
   color: #FDF0D5;
   border-radius: 6px;
-  padding: 1rem;
+  font-size: 1.5rem;
 }
 
 .total {
@@ -232,7 +232,7 @@ body:has(.on:hover) {
   background-color: #C1121F;
   color: #FDF0D5;
   border-radius: 6px;
-  padding: 1rem;
+  font-size: 1.5rem;
 }
 .total span {
   cursor: pointer;
