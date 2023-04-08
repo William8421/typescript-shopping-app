@@ -15,7 +15,6 @@
         width: 380px;
         position: fixed;
         top: 0;
-        right: 0;
         padding: 0 1rem;
         button{
             border: none;
@@ -30,14 +29,13 @@
 }
 
 .off{
-    position: fixed;
-    right: -500px;
+    display: none;
+    opacity: 0;
     transition: .5s ease-in-out;
   }
   .on{
     display: block;
-    z-index: 100;
-    right: 0;
+    opacity: 1;
     transition: .5s ease-in-out;
   }
   
@@ -54,7 +52,4 @@
     height: 100%;
     background-color: black;
     opacity: .5;
-  }
-  .hidden-div{
-    transition: none;
   }
