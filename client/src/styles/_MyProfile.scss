@@ -1,0 +1,56 @@
+.myProfile-container{
+    text-align: center;
+    .my-info-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 10rem;
+        width: 100%;
+        .info{
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+        }
+    }
+    .edit-profile-container{
+        margin: 1rem;
+    }
+}
+
+.my-items-container{
+    // background-color: red;
+    .my-items-sub-container{
+        display: flex;
+        flex-direction: column;
+        .my-items-item-container{
+            background-color: white;
+            margin: 1rem;
+            padding: 1rem;
+            img{
+                width: 200px;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 6px;
+            }
+            .my-items-name-price-container{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .edit-item-button-container{
+                margin: 1rem;
+            }
+        }
+    }
+    .no-items-yet{
+        margin: 1rem;
+    }
+}
+
+button{
+    border-radius: 6px;
+    background-color: #C1121F;
+    color: #FDF0D5;
+    font-size: 1.5rem ;
+}

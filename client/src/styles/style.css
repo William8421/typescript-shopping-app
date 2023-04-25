@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FDF0D5;
+  font-family: "Lora", serif;
+}
+body button {
+  cursor: pointer;
+}
+body .App {
+  margin-top: 5rem;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #669BBC;
+  margin-bottom: 0.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 1rem;
+}
+.navbar-container button {
+  background-color: transparent;
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  border: none;
+}
+.navbar-container .shopping-cart {
+  color: white;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  background-color: #C1121F;
+  font-size: 0.75rem;
+}
+
+.itemContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.shopping-item {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  border-radius: 16px;
+  padding: 1rem 0 1rem 0;
+}
+.shopping-item .item-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px 16px 0 0;
+  margin-bottom: 1rem;
+}
+.shopping-item .item-container img {
+  object-fit: cover;
+  overflow: hidden;
+  height: 200px;
+}
+.shopping-item .item-container .item-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.shopping-item .item-container .item-info .item-price {
+  color: gray;
+}
+.shopping-item .buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.shopping-item .buttons-container .adding-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shopping-item .buttons-container .adding-container .quantity {
+  padding: 0 1rem;
+}
+.shopping-item button {
+  border-radius: 6px;
+  background-color: #C1121F;
+  color: #FDF0D5;
+  font-size: 1.5rem;
+}
+
+.off-canvas {
+  width: 380px;
+  height: 100%;
+  background-color: white;
+  overflow: scroll;
+  padding-top: 3rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.off-canvas .off-canvas-header {
+  background-color: #669BBC;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 380px;
+  position: fixed;
+  top: 0;
+  padding: 0 1rem;
+}
+.off-canvas .off-canvas-header button {
+  border: none;
+  background-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+.off-canvas .items-container {
+  padding-top: 2rem;
+}
+
+.off {
+  display: none;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.on {
+  display: block;
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+
+body:has(.on:hover) {
+  overflow-y: hidden;
+}
+
+.hidden-div.on {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.cart-item img {
+  width: 250px;
+  height: 150px;
+  object-fit: contain;
+}
+.cart-item .cart-container {
+  width: 100%;
+}
+.cart-item .cart-container .name-quantity {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cart-item .cart-container .name-quantity .cart-item-name {
+  font-size: large;
+  font-weight: bold;
+}
+.cart-item .cart-container .name-quantity .cart-item-quantity {
+  color: gray;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cart-item .cart-container .name-quantity .cart-item-quantity button {
+  border-radius: 4px;
+  font-size: 1.5rem;
+}
+.cart-item .cart-container .price-total {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.cart-item .cart-container .price-total .cart-item-price {
+  font-weight: bold;
+  color: gray;
+}
+.cart-item .cart-container .price-total .cart-item-total {
+  color: gray;
+}
+.cart-item button {
+  background-color: #C1121F;
+  color: #FDF0D5;
+  border-radius: 6px;
+  font-size: 1.5rem;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.total button {
+  background-color: #C1121F;
+  color: #FDF0D5;
+  border-radius: 6px;
+  font-size: 1.5rem;
+}
+.total span {
+  cursor: pointer;
+  color: #0D6EFD;
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=style.css.map */
