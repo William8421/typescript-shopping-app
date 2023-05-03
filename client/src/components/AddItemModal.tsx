@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useShoppingCart } from '../context/shoppingCartContext';
 import { useUser } from '../context/userContext';
 import axios from 'axios';
 

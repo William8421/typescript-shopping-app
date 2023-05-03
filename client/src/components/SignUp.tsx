@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useShoppingCart } from '../context/shoppingCartContext';
 import { useUser } from '../context/userContext';
 
 type SignUpModalProps = {

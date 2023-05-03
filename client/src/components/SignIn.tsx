@@ -1,6 +1,5 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useShoppingCart } from '../context/shoppingCartContext';
 import { useUser } from '../context/userContext';
 
   type LoginModalProps = {
@@ -89,3 +88,5 @@ export default function SignIn({isLoginModalOpen, openCloseLoginModal, switcher}
     </div>
   )
 }
+
+export {}
