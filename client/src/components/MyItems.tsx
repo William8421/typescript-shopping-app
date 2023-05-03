@@ -57,12 +57,12 @@ export default function MyItems() {
               <span className="item-price">{formatCurrency(item.price)}</span>
               </div>
                 <div className='edit-item-button-container' onClick={openCloseUpdateItemModal}>
-              <button onClick={(e) => setSelectedItem({itemID: item.itemId, itemName: item.itemName})}>
+              <button className='main-button' onClick={(e) => setSelectedItem({itemID: item.itemId, itemName: item.itemName})}>
                   Edit Item
               </button>
                 </div>
                 <div className='delete-item-container' onClick={openCloseDeleteItemModal}>
-              <button onClick={(e) => setSelectedItem({itemID: item.itemId, itemName: item.itemName})}>Delete Item</button>
+              <button className='main-button' onClick={(e) => setSelectedItem({itemID: item.itemId, itemName: item.itemName})}>Delete Item</button>
               </div>
           </div>
       )
@@ -73,7 +73,7 @@ export default function MyItems() {
       </div>)
   }
   </div>):(<div>please sign in to see your items</div>)}
-          <button onClick={openCloseAddItemsModal}>Add Items</button>
+          <button className='main-button' onClick={openCloseAddItemsModal}>Add Items</button>
           <AddItemModal isAddItemsOpen={isAddItemsOpen} openCloseAddItemsModal={openCloseAddItemsModal} />
           <UpdateItem isUpdateItemModalOpen={isUpdateItemModalOpen} openCloseUpdateItemModal={openCloseUpdateItemModal} selectedItem={selectedItem} data={itemsData}/>
           <DeleteItemModal isDeleteItemModalOpen={isDeleteItemModalOpen} openCloseDeleteItemModal={openCloseDeleteItemModal} selectedItem={selectedItem} />

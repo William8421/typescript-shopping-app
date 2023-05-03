@@ -33,7 +33,7 @@ export default function SignIn({isLoginModalOpen, openCloseLoginModal, switcher}
         });
     }
     
-    async function submit(e: any){
+    async function submit(e: React.FormEvent<HTMLFormElement>){
         e.preventDefault();
         const userData = {
             email: signInForm.email,
@@ -56,7 +56,7 @@ export default function SignIn({isLoginModalOpen, openCloseLoginModal, switcher}
         <div className='login-form-container' onChange={signInFormHandler}>
       <form onSubmit={submit}>
         <div>email
-        <input type='text' name='email'/>
+        <input type='email' name='email'/>
         </div>
         <div className='password-container'>password
         <input type={
@@ -79,7 +79,7 @@ export default function SignIn({isLoginModalOpen, openCloseLoginModal, switcher}
                 />
               )}
         </div>
-        <button type='submit'>
+        <button className='main-button' type='submit'>
             Login
         </button>
       </form>

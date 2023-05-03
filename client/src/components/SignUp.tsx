@@ -5,10 +5,9 @@ import { useUser } from '../context/userContext';
 type SignUpModalProps = {
   isSignUpModalOpen: string
   openCloseSignUpModal: () => void
-  switcher: () => void
 }
 
-export default function SignUp({isSignUpModalOpen, openCloseSignUpModal, switcher}: SignUpModalProps) {
+export default function SignUp({isSignUpModalOpen, openCloseSignUpModal}: SignUpModalProps) {
     const {signingUp} = useUser()
     const [signUpForm, setSignUpForm] = useState({
         username: '',
@@ -84,7 +83,7 @@ export default function SignUp({isSignUpModalOpen, openCloseSignUpModal, switche
         <input type='text' name='lastName'/>
         </div>
         <div>email
-        <input type='text' name='email'/>
+        <input type='email' name='email'/>
         </div>
         <div className='password-container'>password
         <input 
@@ -132,7 +131,7 @@ export default function SignUp({isSignUpModalOpen, openCloseSignUpModal, switche
                   />
                 )}
         </div>
-        <button type='submit'>
+        <button className='main-button' type='submit'>
             Sign Up
         </button>
       </form>

@@ -20,9 +20,9 @@ export default function CartItem({itemId, quantity}: CartItemProps) {
           <div className="name-quantity">
             <div className="cart-item-name">{item.itemName} </div>
             <div className="cart-item-quantity">
-              <button onClick={() => decreaseCartQuantity(itemId)}>-</button>
+              <button className="main-button" onClick={() => decreaseCartQuantity(itemId)}>-</button>
               x{quantity}
-              <button onClick={() => increaseCartQuantity(itemId)}>+</button>
+              <button className="main-button" onClick={() => increaseCartQuantity(itemId)}>+</button>
             </div>
             
           </div>
@@ -35,7 +35,7 @@ export default function CartItem({itemId, quantity}: CartItemProps) {
 
         </div>
 
-        <button onClick={() => removeFromCart(item.itemId)}>Remove</button>
+        <button className="main-button" onClick={() => removeFromCart(item.itemId)}>Remove</button>
     </div>
   )
 }

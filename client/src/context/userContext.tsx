@@ -209,7 +209,7 @@ export function UserProvider({children}: UserProviderProps){
         removeItem
     }}>
         {children}
-        {<SignIn isLoginModalOpen= {isLoginModalOpen} openCloseLoginModal={openCloseLoginModal} switcher={switcher} />}
-        {<SignUp isSignUpModalOpen= {isSignUpModalOpen} openCloseSignUpModal={openCloseSignUpModal} switcher={switcher}/>}
+        {<SignIn isLoginModalOpen= {isLoginModalOpen} openCloseLoginModal={openCloseLoginModal} />}
+        {<SignUp isSignUpModalOpen= {isSignUpModalOpen} openCloseSignUpModal={openCloseSignUpModal}/>}
     </UserContext.Provider>
 }

@@ -35,7 +35,7 @@ export default function MyProfile() {
         )})
         }</div>):(<div>please sign in to see your information</div>)}
         <div className='edit-profile-container'>
-        <button onClick={openCloseEditModal}>Edit Profile</button>
+        <button className='main-button' onClick={openCloseEditModal}>Edit Profile</button>
         </div>
         <EditModal isEditModalOpen={isEditModalOpen} openCloseEditModal={openCloseEditModal} userData={userData}/>
         <MyItems/>

@@ -66,7 +66,7 @@ export default function UpdateItem({isUpdateItemModalOpen, openCloseUpdateItemMo
                     New Image
                     <input type='text' name='imgUrl' />
                 </div>
-                <button type='submit' onClick={openCloseUpdateItemModal}>Save</button>
+                <button className='main-button' type='submit' onClick={openCloseUpdateItemModal}>Save</button>
             </form>
             </div>
         </div>

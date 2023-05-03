@@ -33,8 +33,8 @@ export default function ShoppingCart({isOpen}: ShoppingCartProps) {
           </div>
             {cartItems.length !== 0?
             <div>
-            <button onClick={() => emptyCart()}>Empty Cart</button>
-            <button>Check Out</button>
+            <button className='main-button' onClick={() => emptyCart()}>Empty Cart</button>
+            <button className='main-button'>Check Out</button>
             </div>
             :
             <span onClick={() => openCloseCart()}>Add Items</span>

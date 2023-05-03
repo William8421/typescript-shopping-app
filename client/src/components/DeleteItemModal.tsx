@@ -31,7 +31,7 @@ export default function DeleteItemModal({isDeleteItemModalOpen, openCloseDeleteI
             <div>
             Are you sure you want to delete {selectedItem.itemName}?
             </div>
-            <button onClick={() => deleteItem()}>Delete</button>
+            <button className='main-button' onClick={() => deleteItem()}>Delete</button>
         </div>
       </div>
     </div>

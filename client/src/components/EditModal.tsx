@@ -66,7 +66,7 @@ export default function EditModal({isEditModalOpen, openCloseEditModal, userData
                     New Last Name
                     <input type='text' name='lastName' />
                 </div>
-                <button type='submit' onClick={openCloseEditModal}>Save</button>
+                <button className='main-button' type='submit' onClick={openCloseEditModal}>Save</button>
             </form>
             </div>
         </div>
