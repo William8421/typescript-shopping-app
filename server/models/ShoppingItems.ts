@@ -1,4 +1,4 @@
-import {Model, Schema, model} from 'mongoose';
+import {Schema, model} from 'mongoose';
 
 interface shoppingItems{
     owner: number;
@@ -17,7 +17,5 @@ const shoppingItemsSchema = new Schema<shoppingItems>({
 })
 
 const ShoppingItems = model<shoppingItems>('ShoppingItems', shoppingItemsSchema);
-
-// run().catch(err => console.log(err));
 
 export default ShoppingItems
