@@ -5,10 +5,9 @@ import { useUser } from '../context/userContext';
   type LoginModalProps = {
     isLoginModalOpen: string
     openCloseLoginModal: () => void
-    switcher: () => void
   }
 
-export default function SignIn({isLoginModalOpen, openCloseLoginModal, switcher}: LoginModalProps) {
+export default function SignIn({isLoginModalOpen, openCloseLoginModal}: LoginModalProps) {
     const {signIn} = useUser()
     const [signInForm, setSignInForm] = useState({
         email: '',
@@ -33,7 +32,7 @@ export default function SignIn({isLoginModalOpen, openCloseLoginModal, switcher}
         });
     }
     
-    async function submit(e: React.FormEvent<HTMLFormElement>){
+    async function submit(e: any){
         e.preventDefault();
         const userData = {
             email: signInForm.email,
