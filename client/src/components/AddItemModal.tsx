@@ -27,7 +27,7 @@ export default function AddItemModal({isAddItemsOpen, openCloseAddItemsModal}: A
       const [imgSelected, setImgSelected] = useState<File | string>('')
       const [uploaded, setUploaded] = useState('')
 
-      function imageHandler(e: React.ChangeEvent<HTMLInputElement>){
+      function imageHandler(e: any){
         setImgSelected(e.target.files[0])
       }
 

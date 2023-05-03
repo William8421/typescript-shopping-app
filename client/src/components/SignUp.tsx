@@ -39,7 +39,7 @@ export default function SignUp({isSignUpModalOpen, openCloseSignUpModal, switche
 
 
 
-      async function submit(e: React.FormEvent){
+      async function submit(e: any){
         e.preventDefault();
         const userData = {
             username: signUpForm.username,

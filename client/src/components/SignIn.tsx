@@ -33,7 +33,7 @@ export default function SignIn({isLoginModalOpen, openCloseLoginModal, switcher}
         });
     }
     
-    async function submit(e: React.FormEvent){
+    async function submit(e: any){
         e.preventDefault();
         const userData = {
             email: signInForm.email,
