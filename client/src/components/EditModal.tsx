@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import axios from 'axios'
-import { UserDataProps } from '../types/types'
+import { UserDataProps } from '../types/userTypes'
+import { useShoppingCart } from '../context/shoppingCartContext'
+import { useUser } from '../context/userContext'
 
 type EditModalProps = {
     isEditModalOpen: string
@@ -9,21 +10,14 @@ type EditModalProps = {
 }
 
 export default function EditModal({isEditModalOpen, openCloseEditModal, userData}: EditModalProps) {
+  const {isLoggedIn, editUserInfo} = useUser()
   
-  const user = JSON.parse(localStorage.getItem('user')!)
-
-  const test = userData.find(item => item.id === user.id)
 
   const [updateForm, setUpdateForm] = useState({
-    username: test?.username,
-    firstName: test?.firstName,
-    lastName: test?.lastName
+    username: userData[0]?.username,
+    firstName: userData[0]?.firstName,
+    lastName: userData[0]?.lastName
   })
-  
-  
-  
-  
-
 
   function editProfileFormHandler(e: React.ChangeEvent<HTMLInputElement>) {
     const element = e.target.name;
@@ -32,32 +26,22 @@ export default function EditModal({isEditModalOpen, openCloseEditModal, userData
       return {...prevState, [element]: value}
     })
   }
+  
 
 
   async function submit(e: React.FormEvent) {
     e.preventDefault()
-    try {
-      if(user){
-
+      if(isLoggedIn){
         const newInfo = {
-          id: user.id,
+          id: isLoggedIn.id,
           username: updateForm.username,
           firstName: updateForm.firstName,
-          lastName: updateForm.lastName
+          lastName: updateForm.lastName,
         }
-        
-        await axios.post('http://localhost:8000/user/updateprofile', newInfo)
-        user.username = updateForm.username
-        localStorage.setItem("user", JSON.stringify(user))
-        window.location.href = '/myprofile'
-      }
-    } catch (error) {
-      console.log(error);
-      
+        editUserInfo(newInfo)
     }
   }
-  
-  
+
   
   return (
     <div >

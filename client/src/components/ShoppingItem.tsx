@@ -1,5 +1,5 @@
 import {useShoppingCart } from "../context/shoppingCartContext"
-import {ItemsDataProps} from '../types/types'
+import {ItemsDataProps} from '../types/userTypes'
 import formatCurrency from "../utilities/formatCurrency"
 
 

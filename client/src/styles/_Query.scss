@@ -1,0 +1,230 @@
+@media(min-width: 844px) and (max-height: 390px){
+    .App{
+        .navbar-container{
+            .navbar-sub-container{
+                display: none;  
+            }
+            .landscape-username-container{
+                display: flex;
+                align-items: center;
+                .landscape-username{
+                    width: 2rem;
+                    height: 2rem;
+                    background-color: #C1121F;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    text-decoration: none;
+                    color: black;
+                }
+                .landscape-no-username{
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+            }
+            .landscape-bar{
+                display: flex;
+                align-items: center;
+                justify-content: space-between; 
+                width: 50%;
+                .landscape-routes{
+                    text-decoration: none;
+                    color: black;
+                    background-color: #FDF0D5;
+                    border-radius: 6px;
+                    padding: 0 .2rem;
+                }
+                .landscape-signUp-login-container{
+                    display: flex;
+                    gap: 1rem;
+                    button{
+                        border: none;
+                        background-color: #FDF0D5;
+                        font-size: 1rem;
+                        color: black;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+        .store{
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .shopping-item{
+                width: 300px;
+                .item-container{
+                    img{
+                        width: 200px;
+                        height: 150px;
+                    }
+                }
+            }
+        }
+        .my-items-container{
+            .my-items-sub-container{
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        }
+        .login-modal, .delete-item-modal{
+            right: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            .delete-item-body{
+                margin-top: 2rem;
+            }
+        }
+        .signUp-modal{
+            right: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100%;
+            overflow-y: scroll;
+            .signUp-form-container{
+                margin-top: 4rem;
+            }
+        }
+        .edit-modal, .update-item-modal, .add-modal{
+            right: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100%;
+            overflow-y: scroll;
+            .edit-profile-form-container, .update-item-form-container, .add-item-form-container{
+                div{
+                    input{
+                        width: 150%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 599px){
+    .App{
+        .navbar-container{
+            .navbar-sub-container{
+                display: none;
+            }
+            .app-name-landscape{
+                display: flex;
+                justify-content: space-between;
+                width: 13rem;
+                .landscape-username-container{
+                    display: flex;
+                    align-items: center;
+                    .landscape-username{
+                        width: 2rem;
+                        height: 2rem;
+                        background-color: #C1121F;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                        text-decoration: none;
+                        color: black;
+                    }
+                    .landscape-no-username{
+                        width: 2.5rem;
+                        height: 2.5rem;
+                    }
+                }
+            }
+            .landscape-bar{
+                display: flex;
+                align-items: center;
+                justify-content: space-between; 
+                width: 50%;
+                .landscape-routes{
+                    text-decoration: none;
+                    color: black;
+                    background-color: #FDF0D5;
+                    border-radius: 6px;
+                    padding: 0 .2rem;
+                }
+                .landscape-signUp-login-container{
+                    display: flex;
+                    gap: 1rem;
+                    button{
+                        border: none;
+                        background-color: #FDF0D5;
+                        font-size: 1rem;
+                        color: black;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+        .store{
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .shopping-item{
+                width: 250px;
+                .item-container{
+                    img{
+                        width: 200px;
+                        height: 150px;
+                    }
+                }
+            }
+        }
+        .my-items-container{
+            .my-items-sub-container{
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        }
+        .login-modal, .delete-item-modal{
+            right: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .signUp-modal{
+            right: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 600px;
+        }
+        .edit-modal, .update-item-modal, .add-modal{
+            right: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 600px;
+        }
+    }
+}
+@media (min-width: 900px){
+    .App{
+        .store{
+            .shopping-item{
+                width: 400px;
+                .item-container{
+                    img{
+                        width: 300px;
+                        height: 200px;
+                    }
+                }
+            }
+        }
+        .myProfile-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .my-info-container{
+                width: 50rem;
+            }
+        }
+        .my-items-container{
+            .my-items-sub-container{
+                img{
+                    width: 300px;
+                    height: 200px;
+                }
+            }
+        }
+    }
+}

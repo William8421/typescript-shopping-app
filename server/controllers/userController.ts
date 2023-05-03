@@ -110,6 +110,10 @@ export const signInUser = async (req: Request, res: Response ) => {
       });
 }
 
+export const tokenValidator = (req: Request, res: Response) => {
+  res.json(req.body);
+};
+
 export const getInfo = async (req: Request, res: Response) => {
   const {id} = req.body
 

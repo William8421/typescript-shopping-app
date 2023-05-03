@@ -5,11 +5,13 @@ import { ShoppingCartProvider } from './context/shoppingCartContext'
 import './styles/style.scss';
 import { Route, Routes } from 'react-router-dom'
 import MyProfile from './components/MyProfile';
+import { UserProvider } from './context/userContext';
 
 function App() {
     
   return (
     <div className='App'>
+      <UserProvider>
      <ShoppingCartProvider>
      <Navbar />
      <Routes>
@@ -19,6 +21,7 @@ function App() {
      </Routes>
      
    </ShoppingCartProvider>
+   </UserProvider>
    </div>
   )
 }

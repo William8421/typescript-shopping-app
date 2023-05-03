@@ -3,16 +3,13 @@ import {Request, Response, NextFunction} from 'express';
 import dotenv from "dotenv";
 dotenv.config();
 
-declare global {
-    namespace Express {
-      interface Request {
-        userId: string;
-      }
-    }
-  }
-  
-
-  
+// declare global {
+//     namespace Express {
+//       interface Request {
+//         user: any;
+//       }
+//     }
+//   }
 
 export const authenticateToken = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -21,9 +18,9 @@ export const authenticateToken = async (req: Request, res: Response, next: NextF
   return res.status(401).json({ message: "token not found" });
       jwt.verify(token, process.env.SECRET!, (err, payload) => {
       if (err) throw new Error("token not verified");
-      req.userId = payload!.id;
+      req.user = payload      
       next()})
-  } catch (error) {
+  } catch (error: any) {
     res.json({message: error.message})
   }
 };

@@ -1,75 +1,69 @@
-import { useEffect, useState } from 'react'
 import { useShoppingCart } from '../context/shoppingCartContext'
-import { NavLink, useNavigate } from 'react-router-dom'
-import SignIn from './SignIn'
-import SignUp from './SignUp'
+import { NavLink } from 'react-router-dom'
+import { useUser } from '../context/userContext'
 
 export default function Navbar() {
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState('loginModalOff')
-  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState('signUpModalOff')
-  const [menu, setMenu] = useState('off');
-  const [burger, setBurger] = useState('close');
+  const {openCloseLoginModal, openCloseSignUpModal, switcher, menu, burger, signOut, isLoggedIn, validateToken} = useUser()
 
-  function switcher() {
-    setMenu(menu === 'off' ? 'on' : 'off');
-    setBurger(burger === 'close' ? 'open' : 'close');
-    
-  }
-
-  const {openCloseCart, cartQuantity,
-  } = useShoppingCart()
-  const isLoggedIn = JSON.parse(localStorage.getItem("user")!)
-  const navigate = useNavigate()
-
-  function openCloseLoginModal(){
-    setIsLoginModalOpen(isLoginModalOpen === 'loginModalOff'? 'loginModalOn' : 'loginModalOff')
-  }
-  function openCloseSignUpModal(){
-    setIsSignUpModalOpen(isSignUpModalOpen === 'signUpModalOff'? 'signUpModalOn' : 'signUpModalOff')
-  }
-
-
-  function signout(){
-    localStorage.removeItem('user');
-    switcher()
-    navigate('/store')
-  }
+  const {openCloseCart, cartQuantity} = useShoppingCart()
   
+  validateToken()
   
   return (
     <div className='navbar-container'>
-
-      <div className='navbar-sub-container'>
-        <div className='pages'>
-          <div className={`burger-menu ${menu}`}>
-            <div className='routes-container'>
-          <NavLink to={"/"} ><button onClick={switcher}>Home</button></NavLink>
-          <NavLink to={"/store"}><button onClick={switcher}>Store</button></NavLink>
+        <div className='navbar-sub-container'>
+          <div className='bar-button' onClick={switcher}>
+            <div className={`bar top ${burger}`}></div>
+            <div className={`bar middle ${burger}`}></div>
+            <div className={`bar bottom ${burger}`}></div>
           </div>
-        <div>
-        {!isLoggedIn? (
-        <div className='signUp-login-container'>
-        <button onClick={openCloseSignUpModal}>Sign Up</button>
-        <button onClick={openCloseLoginModal}>Login</button>
-        </div>
-        )
-        :
-        (<div className='signUp-login-container'><button onClick={signout} >Logout</button></div>)
-        }
-        </div>
+          <div className='pages'>
+            <div className={`burger-menu ${menu}`}>
+              <div className='routes-container'>
+                <NavLink to={"/"} ><button onClick={switcher}>Home</button></NavLink>
+                <NavLink to={"/store"}><button onClick={switcher}>Store</button></NavLink>
+              </div>
+              <div>
+                {!isLoggedIn? (
+                <div className='signUp-login-container'>
+                <button onClick={openCloseSignUpModal}>Sign Up</button>
+                <button onClick={openCloseLoginModal}>Login</button>
+                </div>
+                )
+                :
+                (<div className='signUp-login-container'><button onClick={signOut} >Logout</button></div>)
+                }
+              </div>
+            </div>
           </div>
-        </div>
-        <div className='bar-button' onClick={switcher}>
-          <div className={`bar top ${burger}`}></div>
-          <div className={`bar middle ${burger}`}></div>
-          <div className={`bar bottom ${burger}`}></div>
-        </div>
-        <div className='username-container'>
-        {isLoggedIn? (<div><NavLink className='username' to='myprofile' >{isLoggedIn.username[0].toUpperCase()}</NavLink></div>):(<div className='no-username'></div>)}
-        <h2>Shopping App</h2>
-        </div>
-      </div>
-
+          <div className='username-container'>
+          {isLoggedIn? (<div><NavLink className='username' to='myprofile' >{isLoggedIn.username[0].toUpperCase()}</NavLink></div>):(<div className='no-username'></div>)}
+          </div>
+          </div>
+          <div className='app-name-landscape'>
+          <NavLink className='app-name' to='/'><h2>Shopping App</h2></NavLink>
+          <div className='landscape-username-container'>
+          {isLoggedIn? (<div><NavLink className='landscape-username' to='myprofile' >{isLoggedIn.username[0].toUpperCase()}</NavLink></div>):(<div className='landscape-no-username'></div>)}
+          </div>
+          </div>
+          
+          
+          <div className='landscape-bar'>
+            <NavLink className='landscape-routes' to='/'>Home</NavLink>
+            <NavLink className='landscape-routes' to='/store'>Store</NavLink>
+            <div>
+                {!isLoggedIn? (
+                <div className='landscape-signUp-login-container'>
+                <button onClick={openCloseSignUpModal}>Sign Up</button>
+                <button onClick={openCloseLoginModal}>Login</button>
+                </div>
+                )
+                :
+                (<div className='landscape-signUp-login-container'><button onClick={signOut} >Logout</button></div>)
+                }
+              </div>
+          </div>
+          <div className='cart-button-div'>
               <button className='cart-button' onClick={openCloseCart}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,9 +80,7 @@ export default function Navbar() {
             (null)
             }
             </button>
-            
-            <SignIn isLoginModalOpen={isLoginModalOpen} openCloseLoginModal={openCloseLoginModal} switcher={switcher}/>
-            <SignUp isSignUpModalOpen={isSignUpModalOpen} openCloseSignUpModal={openCloseSignUpModal} switcher={switcher}/>
+          </div>
     </div>
   )
 

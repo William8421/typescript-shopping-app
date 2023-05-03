@@ -9,105 +9,111 @@
     left: 0;
     width: 100%;
     padding: 0 1rem;
+    .landscape-bar{
+        display: none;
+    }
     .navbar-sub-container{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 70%;
-        .username-container{
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            .username{
-                width: 2rem;
-                height: 2rem;
-                background-color: #C1121F;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 50%;
-                text-decoration: none;
-                color: black;
-            }
-            .no-username{
-                width: 2.5rem;
+            .bar-button{
+                width: 3rem;
                 height: 2.5rem;
-            }
-        }
-        .bar-button{
-        width: 3rem;
-        height: 2.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        margin-right: auto;
-
-            .bar {
-                background-color: gray;
-                height: 5px;
-                border-radius: 10px;
-                width: 80%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .middle.open {
-                display: none;
-            }
-    
-            .top.open {
-                transform: rotateZ(-45deg) translate(-7px, 7px);
-                width: 100%;
-                opacity: 0.5;
-            }
-    
-            .bottom.open {
-                transform: rotateZ(45deg) translate(-6.5px, -6.5px);
-                width: 100%;
-                opacity: 0.5;
-            }
-        }
-        .pages{
-            .burger-menu{
-                display: none;                
-            }
-            .burger-menu.on{
-                background-color: rgb(197, 186, 186);
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 justify-content: space-around;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                height: 80vh;
-                button{
-                font-size: 1.5rem;
-                background-color: transparent;
-                border: none;
-                color: #669BBC;
-                font-weight: bolder;
+                margin-right: auto;        
+                    .bar {
+                        background-color: gray;
+                        height: 5px;
+                        border-radius: 10px;
+                        width: 80%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .middle.open {
+                        display: none;
+                    }
+            
+                    .top.open {
+                        transform: rotateZ(-45deg) translate(-7px, 7px);
+                        width: 100%;
+                        opacity: 0.5;
+                    }
+            
+                    .bottom.open {
+                        transform: rotateZ(45deg) translate(-6.5px, -6.5px);
+                        width: 100%;
+                        opacity: 0.5;
+                    }
                 }
-            }
-            .routes-container{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-between;
-                height: 25vh;
-            }
-            .signUp-login-container{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-between;
-                height: 25vh;
-            }
+                .pages{
+                    .burger-menu{
+                        display: none;           
+                    }
+                    .burger-menu.on{
+                        background-color: rgb(197, 186, 186);
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        width: 100%;
+                        height: 80vh;
+                        button{
+                        font-size: 1.5rem;
+                        background-color: transparent;
+                        border: none;
+                        color: #669BBC;
+                        font-weight: bolder;
+                        }
+                    }
+                    .routes-container{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                        height: 25vh;
+                    }
+                    .signUp-login-container{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                        height: 25vh;
+                    }
+                }
+                .username-container{
+                    display: flex;
+                    align-items: center;
+                    .username{
+                        width: 2rem;
+                        height: 2rem;
+                        background-color: #C1121F;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                        text-decoration: none;
+                        color: black;
+                    }
+                    .no-username{
+                        width: 2.5rem;
+                        height: 2.5rem;
+                    }
+                }
         }
-    }
-    .cart-button{
+        .app-name{
+            text-decoration: none;
+            color: black;
+        }
+        .landscape-username-container{
+            display: none;
+        }
+    .cart-button-div{
+       .cart-button{
         background-color: transparent;
         width: 3rem;
         height: 3rem;
@@ -126,5 +132,6 @@
         border-radius: 50%;
         background-color: #C1121F;
         font-size: .75rem;
-    }
+    } 
+    }    
 }

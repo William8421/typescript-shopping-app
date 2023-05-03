@@ -1,11 +1,14 @@
 import { useShoppingCart } from "../context/shoppingCartContext"
-import { ItemsDataProps, CartItemProps } from "../types/types"
+import { useUser } from "../context/userContext"
+import {CartItemProps } from "../types/shoppingCartTypes"
+import {ItemsDataProps} from '../types/userTypes'
 import formatCurrency from "../utilities/formatCurrency"
 
 
 
 export default function CartItem({itemId, quantity}: CartItemProps) {
-  const {removeFromCart,increaseCartQuantity,decreaseCartQuantity, allData} = useShoppingCart()
+  const {removeFromCart,increaseCartQuantity,decreaseCartQuantity} = useShoppingCart()
+  const {allData} = useUser()
   
   const item = allData?.find((i: ItemsDataProps) => i.itemId === itemId)
   if(item == null) return null

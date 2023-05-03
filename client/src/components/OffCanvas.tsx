@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
 import { useShoppingCart } from '../context/shoppingCartContext'
-import { ItemsDataProps } from '../types/types'
+import { useUser } from '../context/userContext'
+import { ItemsDataProps } from '../types/userTypes'
 import formatCurrency from '../utilities/formatCurrency'
 import CartItem from './CartItem'
 
@@ -9,7 +9,8 @@ type ShoppingCartProps = {
 }
 
 export default function ShoppingCart({isOpen}: ShoppingCartProps) {
-    const {openCloseCart, cartItems, emptyCart, allData, fetchData} = useShoppingCart()
+    const {openCloseCart, cartItems, emptyCart} = useShoppingCart()
+    const {allData} = useUser()
 
   return (
     <div>

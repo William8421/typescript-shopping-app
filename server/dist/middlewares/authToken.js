@@ -16,6 +16,13 @@ exports.authenticateToken = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
+// declare global {
+//     namespace Express {
+//       interface Request {
+//         user: any;
+//       }
+//     }
+//   }
 const authenticateToken = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const token = req.headers["authorization"].split(" ")[1];
@@ -24,7 +31,7 @@ const authenticateToken = (req, res, next) => __awaiter(void 0, void 0, void 0, 
         jsonwebtoken_1.default.verify(token, process.env.SECRET, (err, payload) => {
             if (err)
                 throw new Error("token not verified");
-            req.userId = payload.id;
+            req.user = payload;
             next();
         });
     }

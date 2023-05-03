@@ -1,6 +1,7 @@
-import axios from 'axios';
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useShoppingCart } from '../context/shoppingCartContext';
+import { useUser } from '../context/userContext';
 
 type SignUpModalProps = {
   isSignUpModalOpen: string
@@ -9,7 +10,7 @@ type SignUpModalProps = {
 }
 
 export default function SignUp({isSignUpModalOpen, openCloseSignUpModal, switcher}: SignUpModalProps) {
-    const navigate = useNavigate()
+    const {signingUp} = useUser()
     const [signUpForm, setSignUpForm] = useState({
         username: '',
         firstName: '',
@@ -18,46 +19,43 @@ export default function SignUp({isSignUpModalOpen, openCloseSignUpModal, switche
         password: '',
         confirmPassword: '',
     })
+    const [passToggle, setPassToggle] = useState({
+      showPassword: "",
+      showConfirmPassword: "",
+    });
+  
+    function show_hidePassword(e: string) {
+      if (e === "password") {
+        setPassToggle({
+          ...passToggle,
+          showPassword: e === passToggle.showPassword ? "" : e,
+        });
+      } else if (e === "confirmPassword") {
+        setPassToggle({
+          ...passToggle,
+          showConfirmPassword: e === passToggle.showConfirmPassword ? "" : e,
+        });
+      }
+    }
 
 
 
       async function submit(e: React.FormEvent){
         e.preventDefault();
-        try {
-            const userData = {
-                username: signUpForm.username,
-                firstName: signUpForm.firstName ,
-                lastName: signUpForm.lastName,
-                email: signUpForm.email,
-                password: signUpForm.password,
-                confirmPassword: signUpForm.confirmPassword,
-            }
-            const response = await axios.post('http://localhost:8000/user/signup', userData)
-            
-            const userStorage = {
-                username: response.data.user.username,
-                id: response.data.user.id,
-                token: response.data.token,
-              };
-              localStorage.setItem("user", JSON.stringify(userStorage));
-              openCloseSignUpModal()
-              switcher()
-              e.target.reset()
-              navigate('/myprofile')
-        } catch (error) {
-            if(error.response.data.msg){
-
-                alert(error.response.data.msg)           
-            }else if(error.response.data.errors[0].msg){
-                alert(error.response.data.errors[0].msg)
-            }
-            console.log(error);
-            
+        const userData = {
+            username: signUpForm.username,
+            firstName: signUpForm.firstName ,
+            lastName: signUpForm.lastName,
+            email: signUpForm.email,
+            password: signUpForm.password,
+            confirmPassword: signUpForm.confirmPassword,
         }
-        
+        signingUp(userData)
+        openCloseSignUpModal()
+              e.target.reset()
       }
 
-    function signUpFormHandler(e){
+    function signUpFormHandler(e: React.ChangeEvent<HTMLInputElement>){
         const element = e.target.name;
         const value = e.target.value;
         setSignUpForm((prevState) => {
@@ -74,7 +72,7 @@ export default function SignUp({isSignUpModalOpen, openCloseSignUpModal, switche
           <h2>Sign Up</h2>
           <button className='close-button' onClick={openCloseSignUpModal}>X</button>
             </div>
-        <div className='signUp-form-container' onChange={(e) => signUpFormHandler(e)}>
+        <div className='signUp-form-container' onChange={signUpFormHandler}>
       <form onSubmit={submit}>
         <div>
             username
@@ -89,11 +87,51 @@ export default function SignUp({isSignUpModalOpen, openCloseSignUpModal, switche
         <div>email
         <input type='text' name='email'/>
         </div>
-        <div>password
-        <input type='text' name='password'/>
+        <div className='password-container'>password
+        <input 
+        type={
+          passToggle.showPassword === "password" ? "text" : "password"
+        }
+        name='password'
+        required
+        minLength={6}
+        autoComplete=''
+        />
+        {passToggle.showPassword === "password" ? (
+                <AiOutlineEyeInvisible
+                  className="showHidePassword"
+                  onClick={() => show_hidePassword("password")}
+                />
+              ) : (
+                <AiOutlineEye
+                  className="showHidePassword"
+                  onClick={() => show_hidePassword("password")}
+                />
+              )}
         </div>
-        <div>confirm password
-        <input type='text' name='confirmPassword'/>
+        <div className='password-container'>confirm password
+        <input
+        type={
+          passToggle.showConfirmPassword === "confirmPassword"
+            ? "text"
+            : "password"
+        }
+        name='confirmPassword'
+        required
+        minLength={6}
+        autoComplete=''
+        />
+        {passToggle.showConfirmPassword === "confirmPassword" ? (
+                  <AiOutlineEyeInvisible
+                    className="showHidePassword"
+                    onClick={() => show_hidePassword("confirmPassword")}
+                  />
+                ) : (
+                  <AiOutlineEye
+                    className="showHidePassword"
+                    onClick={() => show_hidePassword("confirmPassword")}
+                  />
+                )}
         </div>
         <button type='submit'>
             Sign Up

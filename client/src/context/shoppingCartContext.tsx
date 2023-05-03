@@ -1,12 +1,11 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import OffCanvas from '../components/OffCanvas'
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import {
   ShoppingCartProviderProps,
   shoppingCartContext,
-  CartItem,
-} from '../types/types'
-import axios from "axios";
+  CartItem
+} from '../types/shoppingCartTypes'
 
 
 
@@ -22,21 +21,18 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider({children}:
     ShoppingCartProviderProps){
+        // const navigate = useNavigate()
+
+        // cart modal
         const [isOpen, setIsOpen] = useState('off')
-        const [cartItems, setCartItems] = useLocalStorage<CartItem[]>("shopping-cart", [])
-        const [allData, setAllData] = useState([])
-
-        async function fetchData(){     
-          const allItems = (await axios.get('http://localhost:8000/items/allitems'))          
-          setAllData(allItems.data)
-        }
-
-        
-          
-
         function openCloseCart(){
           setIsOpen(isOpen === 'off'? 'on' : 'off')          
         }
+        //============================================================================================================
+
+
+        // cart items functions
+        const [cartItems, setCartItems] = useLocalStorage<CartItem[]>("shopping-cart", [])
 
         const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
         
@@ -87,17 +83,14 @@ export function ShoppingCartProvider({children}:
 
         
     return <shoppingCartContext.Provider value={{
+        openCloseCart,
+        cartItems,
+        cartQuantity,
         getItemQuantity,
         increaseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
-        emptyCart,
-        cartQuantity,
-        cartItems,
-        openCloseCart,
-        fetchData,
-        allData,
-        setAllData,
+        emptyCart
         }}>
         {children}
         {<OffCanvas isOpen= {isOpen}/>}

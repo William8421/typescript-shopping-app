@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import axios from 'axios'
-import {ItemsDataProps, SelectedItemProps} from '../types/types'
+import {ItemsDataProps, SelectedItemProps} from '../types/userTypes'
+import { useShoppingCart } from '../context/shoppingCartContext'
+import { useUser } from '../context/userContext'
 
 type UpdateItemProps = {
     isUpdateItemModalOpen: string
@@ -10,6 +11,7 @@ type UpdateItemProps = {
 }
 
 export default function UpdateItem({isUpdateItemModalOpen, openCloseUpdateItemModal, data, selectedItem}: UpdateItemProps) {
+  const {isLoggedIn, updateItem} = useUser()
 
   const itemOldData = data.find(item => item.itemId === selectedItem.itemID)
 
@@ -19,9 +21,6 @@ export default function UpdateItem({isUpdateItemModalOpen, openCloseUpdateItemMo
         imgUrl: itemOldData?.imgUrl
     })
 
-
-    const user = JSON.parse(localStorage.getItem('user') || '{}')
-
     function updateItemFormHandler(e: React.ChangeEvent<HTMLInputElement>) {
         const element = e.target.name;
         const value = e.target.value;
@@ -30,10 +29,9 @@ export default function UpdateItem({isUpdateItemModalOpen, openCloseUpdateItemMo
         })
       }
 
-      async function submit(e: React.FormEvent) {
+      function submit(e: React.FormEvent) {
         e.preventDefault()
-        try {
-          if(user){
+          if(isLoggedIn){
     
             const newItemInfo = {
               itemId: selectedItem.itemID,
@@ -41,12 +39,8 @@ export default function UpdateItem({isUpdateItemModalOpen, openCloseUpdateItemMo
               price: updateItemForm.price,
               imgUrl: updateItemForm.imgUrl
             }
-            
-            await axios.post('http://localhost:8000/items/updateitem', newItemInfo)
+            updateItem(newItemInfo)
             window.location.href = '/myprofile'
-          }
-        } catch (error) {
-          console.log(error);          
         }
       }
   return (

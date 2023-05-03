@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const validators_1 = require("../middlewares/validators");
 const userController_1 = require("../controllers/userController");
+const authToken_1 = require("../middlewares/authToken");
 const userRouter = (0, express_1.Router)();
 /**
  * @method POST /user/signup
@@ -16,6 +17,7 @@ userRouter.post('/signup', (0, validators_1.validatorSignUp)(), userController_1
  * @access Public
  */
 userRouter.post('/signin', (0, validators_1.validatorSignIn)(), userController_1.signInUser);
+userRouter.get('/tokenvalidation', authToken_1.authenticateToken, userController_1.tokenValidator);
 /**
  * @method POST /user/getinfo
  * @desc get user info

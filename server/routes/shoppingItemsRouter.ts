@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { addItems, getAllItems, getUserItems, removeItem, updateItem } from "../controllers/shoppingController";
-import {authenticateToken} from '../middlewares/authToken'
 
 const shoppingItemsRouter = Router()
 
@@ -23,9 +22,7 @@ shoppingItemsRouter.get('/allitems', getAllItems)
  * @desc get all user items
  * @access Private
  */
-shoppingItemsRouter.post('/useritems',
-// authenticateToken,
-getUserItems)
+shoppingItemsRouter.post('/useritems', getUserItems)
 
 /**
  * @method POST /items/updateitems

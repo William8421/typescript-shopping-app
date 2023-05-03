@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { validatorSignUp, validatorSignIn } from "../middlewares/validators";
-import {registerUser, removeUser, signInUser, updateUser, getInfo} from '../controllers/userController';
+import {registerUser, removeUser, signInUser, updateUser, getInfo, tokenValidator} from '../controllers/userController';
 import { authenticateToken } from "../middlewares/authToken";
 
 const userRouter = Router()
@@ -18,6 +18,9 @@ userRouter.post('/signup', validatorSignUp(), registerUser)
  * @access Public
  */
 userRouter.post('/signin', validatorSignIn(), signInUser)
+
+
+userRouter.get('/tokenvalidation', authenticateToken, tokenValidator)
 
 /**
  * @method POST /user/getinfo

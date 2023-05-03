@@ -20,9 +20,7 @@ shoppingItemsRouter.get('/allitems', shoppingController_1.getAllItems);
  * @desc get all user items
  * @access Private
  */
-shoppingItemsRouter.post('/useritems', 
-// authenticateToken,
-shoppingController_1.getUserItems);
+shoppingItemsRouter.post('/useritems', shoppingController_1.getUserItems);
 /**
  * @method POST /items/updateitems
  * @desc update items

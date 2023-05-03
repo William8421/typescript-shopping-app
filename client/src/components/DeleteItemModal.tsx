@@ -1,5 +1,7 @@
-import axios from 'axios'
-import { SelectedItemProps } from '../types/types'
+import { SelectedItemProps } from '../types/userTypes'
+import { useUser } from '../context/userContext'
+
+
 type DeleteItemProps ={
     isDeleteItemModalOpen: string
     openCloseDeleteItemModal: () => void
@@ -7,23 +9,16 @@ type DeleteItemProps ={
 }
 
 export default function DeleteItemModal({isDeleteItemModalOpen, openCloseDeleteItemModal, selectedItem}: DeleteItemProps) {
-    async function deleteItem(){
-        try {
-          const item = {
-            itemId: selectedItem.itemID,
-            itemName: selectedItem.itemName
-          }
-          await axios.post('http://localhost:8000/items/removeitem', {itemId: item.itemId, itemName: item.itemName})
-          .then(response => console.log(response)
-          )
-          window.location.href = '/myprofile'
-          console.log(item);
-          
-        } catch (error) {
-          console.log(error);
-          
-        }
-      }
+  const {removeItem} = useUser()
+    function deleteItem(){
+      const item = {
+              itemId: selectedItem.itemID,
+              itemName: selectedItem.itemName
+            }
+            removeItem(item)
+            window.location.href = '/myprofile'
+    }
+    
   return (
     <div>
         <div className={`delete-item-hidden-div ${isDeleteItemModalOpen}`}></div>

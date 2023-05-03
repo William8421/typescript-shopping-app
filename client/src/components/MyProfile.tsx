@@ -1,35 +1,24 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react'
 import MyItems from './MyItems';
-import { UserDataProps} from '../types/types';
 import EditModal from './EditModal';
+import { useUser } from '../context/userContext';
 
 
 
 export default function MyProfile() {
-    const [userData, setUserData] = useState<UserDataProps[]>([])
+  const {isLoggedIn, getUserInfo, userData} = useUser()
     const [isEditModalOpen, setIsEditModalOpen] = useState('editModalOff')
-
-    const isLoggedIn = JSON.parse(localStorage.getItem("user")!)
 
     function openCloseEditModal(): void{
         setIsEditModalOpen(isEditModalOpen === 'editModalOff'? 'editModalOn' : 'editModalOff')                  
       }
     
       useEffect(() => {
-
-        async function getUser() {
-          try {
-            await axios.post('http://localhost:8000/user/getinfo', isLoggedIn)
-            .then(response => setUserData(response.data))
-          } catch (error) {
-            console.log(error);            
-          }
+        if (isLoggedIn) {          
+          getUserInfo()
         }
-        if(isLoggedIn){
-          getUser()
-        }
-      }, [])
+      }, [])       
+      
     
   return (
     <div className='myProfile-container'>
@@ -44,7 +33,7 @@ export default function MyProfile() {
                 <div className='info'><span>Email:</span> <span>{item.email}</span></div>
                 </div>
         )})
-        }</div>):(<div>please sign in to see your items</div>)}
+        }</div>):(<div>please sign in to see your information</div>)}
         <div className='edit-profile-container'>
         <button onClick={openCloseEditModal}>Edit Profile</button>
         </div>

@@ -1,5 +1,7 @@
-import axios from 'axios';
 import React, { useState } from 'react';
+import { useShoppingCart } from '../context/shoppingCartContext';
+import { useUser } from '../context/userContext';
+import axios from 'axios';
 
 type AddItemModalProps = {
     isAddItemsOpen: string
@@ -7,13 +9,12 @@ type AddItemModalProps = {
 }
 
 export default function AddItemModal({isAddItemsOpen, openCloseAddItemsModal}: AddItemModalProps) {
+  const {isLoggedIn, AddItem} = useUser()
     const [addItemForm, setAddItemForm] = useState({
         itemName: '',
         price: 0,
         imgUrl: ''
     })
-
-    const user = JSON.parse(localStorage.getItem('user')!)
     
 
     function addItemHandler(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -24,18 +25,50 @@ export default function AddItemModal({isAddItemsOpen, openCloseAddItemsModal}: A
         })
       }
 
-      async function submit(e: React.FormEvent) {
+      const [imgSelected, setImgSelected] = useState<File | string>('')
+      const [uploaded, setUploaded] = useState('')
+
+      function imageHandler(e: React.ChangeEvent<HTMLInputElement>){
+        setImgSelected(e.target.files[0])
+      }
+
+      const uploadImage = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("file", imgSelected);
+        formData.append("upload_preset", "WilliamMallak");
+        formData.append("upload_name", "denpxdokx");
+    
+        axios
+          .post(
+            "https://api.cloudinary.com/v1_1/denpxdokx/image/upload",
+            formData
+          )
+          .then((response) =>
+          {
+            setUploaded(response.data.url)
+            console.log('check', response.data.url);
+            
+            setAddItemForm({ ...addItemForm, imgUrl: response.data.url })}
+          )
+          .catch((err) => {
+            return console.log(err);
+          });
+      };
+      
+
+      function submit(e: React.FormEvent) {
         e.preventDefault()
         try {
-          if(user){
+          if(isLoggedIn){
     
             const newItem = {
-              userId: user.id,
+              userId: isLoggedIn.id,
               itemName: addItemForm.itemName,
               price: addItemForm.price,
               imgUrl: addItemForm.imgUrl
             }
-            await axios.post('http://localhost:8000/items/additems', newItem)
+            AddItem(newItem)
           }
           window.location.href = '/myprofile'
         } catch (error) {
@@ -53,7 +86,7 @@ export default function AddItemModal({isAddItemsOpen, openCloseAddItemsModal}: A
                 <h2>Add Item</h2>
                 <button className='close-button' onClick={openCloseAddItemsModal}>X</button>
             </div>
-      <div onChange={addItemHandler} className='add-profile-form-container'>
+      <div onChange={addItemHandler} className='add-item-form-container'>
             <form onSubmit={submit}>
                 <div>
                     Item Name
@@ -61,13 +94,20 @@ export default function AddItemModal({isAddItemsOpen, openCloseAddItemsModal}: A
                 </div>
                 <div>
                     Price
-                    <input type='number' name='price' />
+                    <input type='number' name='price'/>
                 </div>
                 <div>
                     image
-                    <input type='text' name='imgUrl' />
+                    <input type='file' name='imgUrl' onChange={(e) => imageHandler(e)} />
+                    {addItemForm.imgUrl !== ''? (
+                    <button onClick={(e) => uploadImage(e)}>Upload</button>
+                    ): (<div>please upload image</div>)}
                 </div>
-                <button type='submit' onClick={openCloseAddItemsModal}>Add Item</button>
+                {uploaded && addItemForm.itemName && addItemForm.price ? 
+                (<button type='submit' onClick={openCloseAddItemsModal}>Add Item</button>)
+                :
+                (<button style={{backgroundColor: "grey"}} disabled>Add Item</button>)
+                }
             </form>
             </div>
 
