@@ -1,0 +1,27 @@
+.home-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 60vh;
+        .home-app-name{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h2, h1{
+                color: #000000;
+                text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
+            }
+        }
+        .cart-background{
+            background-image: url(imgs/shopping-cart-background.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100%;
+            width: 100%;
+        }
+        .start-shopping{
+            color: #0D6EFD;
+            text-align: center;
+        }     
+}

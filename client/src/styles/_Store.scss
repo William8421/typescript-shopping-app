@@ -52,12 +52,19 @@
                 }
             }
         }
-    
-        // button{
-        //     border-radius: 6px;
-        //     background-color: #0e5b8b;
-        //     color: #FDF0D5;
-        //     font-size: 1.5rem ;
-        // }
+    }
+}
+.loading-container{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .loading-message{
+        width: 40%;
+        text-align: center;
+    }
+    img{
+        width: 10%;
     }
 }

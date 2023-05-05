@@ -1,0 +1,62 @@
+.about-container{
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .about-app, .about-project, .technologies-used{
+        width: 390px;
+        height: 250px;
+        color: white;
+        margin: 1rem 0;
+        padding: 1rem;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow:  10px 10px 10px #cccccc,
+                     10px 10px 10px #ffffff,
+                     0 0 0 #cccccc inset,
+                     0 0 0 #ffffff inset;
+    }
+    .about-app{        
+        background: #5b91b2;
+        h2{
+            background-color: white;
+            color: #5b91b2;
+            border-radius: 6px;
+            width: fit-content;
+            padding: .2rem;
+            box-shadow: black 3px 3px 6px 0px inset, 
+                        #ffffff80 -3px -3px 6px 1px inset;
+        }
+    }
+    .about-project{
+        background-color: #27678f;
+        h2{
+            background-color: white;
+            color: #27678f;
+            border-radius: 6px;
+            width: fit-content;
+            padding: .2rem;
+            box-shadow: black 3px 3px 6px 0px inset, 
+                        #ffffff80 -3px -3px 6px 1px inset;
+        }
+    }
+    .technologies-used{
+        background-color: #053d60;
+        h2{
+            background-color: white;
+            color: #053d60;
+            border-radius: 6px;
+            width: fit-content;
+            padding: .2rem;
+            box-shadow: black 3px 3px 6px 0px inset, 
+                        #ffffff80 -3px -3px 6px 1px inset;
+        }
+    }
+    .logos{
+        display: none;
+    }
+}

@@ -2,11 +2,20 @@ import { useShoppingCart } from '../context/shoppingCartContext'
 import { NavLink } from 'react-router-dom'
 import { useUser } from '../context/userContext'
 import {IoCart} from 'react-icons/io5'
+import { useEffect } from 'react'
 
 export default function Navbar() {
   const {openCloseLoginModal, openCloseSignUpModal, switcher, menu, burger, signOut, isLoggedIn, validateToken} = useUser()
 
-  const {openCloseCart, cartQuantity} = useShoppingCart()
+  const {openCloseCart, cartQuantity} = useShoppingCart()  
+  function refreshData(){
+    return (
+      <a href='https://typescript-shopping-app.onrender.com'></a>
+    )
+  }
+  useEffect(() => {
+    refreshData()
+  }, [])
   
   validateToken()
   
@@ -23,6 +32,7 @@ export default function Navbar() {
               <div className='routes-container'>
                 <NavLink to={"/"} ><button onClick={switcher}>Home</button></NavLink>
                 <NavLink to={"/store"}><button onClick={switcher}>Store</button></NavLink>
+                <NavLink to={"/about"}><button onClick={switcher}>About</button></NavLink>
               </div>
               <div>
                 {!isLoggedIn? (
@@ -52,6 +62,7 @@ export default function Navbar() {
           <div className='landscape-bar'>
             <NavLink className='landscape-routes' to='/'>Home</NavLink>
             <NavLink className='landscape-routes' to='/store'>Store</NavLink>
+            <NavLink className='landscape-routes' to='/about'>About</NavLink>
             <div>
                 {!isLoggedIn? (
                 <div className='landscape-signUp-login-container'>

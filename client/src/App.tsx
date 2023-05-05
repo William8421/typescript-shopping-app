@@ -6,6 +6,7 @@ import './styles/style.scss';
 import { Route, Routes } from 'react-router-dom'
 import MyProfile from './components/MyProfile';
 import { UserProvider } from './context/userContext';
+import About from './pages/About';
 
 function App() {
     
@@ -17,6 +18,7 @@ function App() {
      <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/store' element={<Store/>}/>
+      <Route path='/about' element={<About/>}/>
       <Route path='myprofile' element={<MyProfile/>} />
      </Routes>
      
