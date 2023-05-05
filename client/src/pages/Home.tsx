@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import shoppingCartBackground from '../../public/imgs/shopping-cart-background.png'
 
 export default function Home() {
   return (
@@ -10,7 +11,9 @@ export default function Home() {
         <h3>Start Shopping</h3>
         </NavLink>
         </div>
-        <div className='cart-background'></div>
+        <div className='cart-img'>
+          <img src={shoppingCartBackground} />
+        </div>
     </div>
   )
 }

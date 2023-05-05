@@ -12,13 +12,12 @@
                 text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
             }
         }
-        .cart-background{
-            background-image: url(imgs/shopping-cart-background.png);
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 100%;
-            width: 100%;
+        .cart-img{
+            display: flex;
+            justify-content: center;
+            img{
+                width: 70%;
+            }
         }
         .start-shopping{
             color: #0D6EFD;

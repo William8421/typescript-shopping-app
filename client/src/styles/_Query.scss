@@ -178,15 +178,6 @@
                 }
             }
         }
-        .home-container{
-            height: 70vh;
-            flex-direction: row;
-            align-items: center;
-            padding-top: 10rem;
-                .home-app-name{
-                    width: 100%;
-                }          
-        }
         .store{
             flex-direction: row;
             flex-wrap: wrap;
@@ -242,7 +233,7 @@
             align-items: center;
             padding-top: 10rem;
                 .home-app-name{
-                    width: 70%;
+                    width: 80%;
                 }          
         }
         .store{
