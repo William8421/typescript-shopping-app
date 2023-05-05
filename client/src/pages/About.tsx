@@ -1,4 +1,4 @@
-import tecgLogos from '/imgs/techLogos.png'
+import tecgLogos from '../imgs/techLogos.png'
 export default function About() {
   return (
     <div className="about-container">

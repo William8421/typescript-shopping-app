@@ -2,7 +2,7 @@ import {ShoppingItem} from "../components/ShoppingItem"
 import { useEffect } from "react"
 import { ItemsDataProps } from "../types/userTypes"
 import { useUser } from "../context/userContext"
-import loading from '/imgs/blue_spinner.gif'
+import loading from '../imgs/blue_spinner.gif'
 
 export default function Store() {
   const {allData, fetchData} = useUser()
