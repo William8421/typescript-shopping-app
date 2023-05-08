@@ -1,5 +1,4 @@
 .add-modal{
-    background-color: #FDF0D5;
     width: 380px;
     height: 600px;
     position: fixed;
@@ -8,9 +7,8 @@
     transform: translate(-5%, -50%);
     display: flex;
     align-items: center;
-    padding-top: 4rem;
     .add-modal-header{
-        background-color: #669BBC;
+        background-color: #cd729c;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -18,8 +16,10 @@
         position: fixed;
         top: 0;
         padding: 0 1rem;
+        color: black;
     }
     .add-item-form-container{
+        background-color: #3a3f98;
         display: flex;
         flex-direction: column;
         align-items: center;

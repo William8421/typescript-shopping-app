@@ -1,10 +1,11 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body{
-    background-color: #FDF0D5;
-    font-family: 'Lora', serif;
+    background: url(../imgs/background2croped.jpg) center /cover no-repeat;
     button{
         cursor: pointer;
     }
@@ -18,10 +19,11 @@ body{
             color: black;
         }
         .main-button{
-            color: white;
-            background-color: #0e5b8b;
+            color: #131763;
+            background-color: #cd729c;
             border-radius: 6px;
             font-size: 1.2rem;
+            padding: 0 .2rem;
         }        
     }
 }

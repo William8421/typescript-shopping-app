@@ -5,9 +5,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 95vh;
     .about-app, .about-project, .technologies-used{
         width: 390px;
-        height: 250px;
+        height: 200px;
         color: white;
         margin: 1rem 0;
         padding: 1rem;
@@ -15,13 +16,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        box-shadow:  10px 10px 10px #cccccc,
-                     10px 10px 10px #ffffff,
-                     0 0 0 #cccccc inset,
-                     0 0 0 #ffffff inset;
+        justify-content: space-around;
+        // box-shadow:  10px 10px 10px #cccccc,
+        //              10px 10px 10px #ffffff,
+        //              0 0 0 #cccccc inset,
+        //              0 0 0 #ffffff inset;
     }
     .about-app{        
-        background: #5b91b2;
+        // background: #5b91b2;
+        // border: solid 5px #5b91b2;
         h2{
             background-color: white;
             color: #5b91b2;
@@ -33,7 +36,8 @@
         }
     }
     .about-project{
-        background-color: #27678f;
+        // background-color: #27678f;
+        // border: solid 5px #5b91b2;
         h2{
             background-color: white;
             color: #27678f;
@@ -45,7 +49,8 @@
         }
     }
     .technologies-used{
-        background-color: #053d60;
+        // background-color: #053d60;
+        // border: solid 5px #5b91b2;
         h2{
             background-color: white;
             color: #053d60;
