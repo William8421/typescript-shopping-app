@@ -11,12 +11,13 @@ type ShoppingCartProps = {
 export default function ShoppingCart({isOpen}: ShoppingCartProps) {
     const {openCloseCart, cartItems, emptyCart} = useShoppingCart()
     const {allData} = useUser()
+    
 
   return (
     <div>
       <div className={`hidden-div ${isOpen}`} onClick={openCloseCart}></div>
       <div className={`off-canvas ${isOpen}`}>
-        <div className='off-canvas-header'>
+        <div className='off-canvas-header'> 
           <h2>Cart</h2>
           <button className='close-button' onClick={openCloseCart}>X</button>
         </div>
@@ -25,12 +26,13 @@ export default function ShoppingCart({isOpen}: ShoppingCartProps) {
             <CartItem key={item.itemId} {...item}/>
         ))}
         <div className='total'>
+          {cartItems.length !== 0 && 
           <div>
             Total {formatCurrency(cartItems.reduce((total, cartItem) => {
                 const item = allData?.find((i: ItemsDataProps) => i.itemId === cartItem.itemId)
                 return total + (item?.price || 0) * cartItem.quantity
             }, 0))}
-          </div>
+          </div>}
             {cartItems.length !== 0?
             <div>
             <button className='main-button' onClick={() => emptyCart()}>Empty Cart</button>

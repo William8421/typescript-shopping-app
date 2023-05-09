@@ -19,11 +19,11 @@ export  function ShoppingItem({itemId, itemName, price, imgUrl}: ItemsDataProps)
                 <button className='main-button' onClick={() => increaseCartQuantity(itemId)} >Add To Cart</button>
             ) : <div className="buttons-container">
                 <div className="adding-container">
-                    <button className='main-button' onClick={() => decreaseCartQuantity(itemId)}>-</button>
+                    <button className='increase-decrease-buttons' onClick={() => decreaseCartQuantity(itemId)}>-</button>
                     <div className="quantity">
                     <span>{quantity}</span> in Cart
                     </div>
-                    <button className='main-button' onClick={() => increaseCartQuantity(itemId)}>+</button>
+                    <button className='increase-decrease-buttons' onClick={() => increaseCartQuantity(itemId)}>+</button>
                 </div>
                 <button className='main-button' onClick={() => removeFromCart(itemId)}>Remove</button>
             </div> }
