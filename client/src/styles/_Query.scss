@@ -82,29 +82,13 @@
                 justify-content: space-around;
             }
         }
-        .login-modal, .delete-item-modal{
-            right: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            .delete-item-body{
-                margin-top: 2rem;
-            }
-        }
+        
         .signUp-modal{
-            right: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 100%;
+            max-height: 75%;
             overflow-y: scroll;
-            .signUp-form-container{
-                margin-top: 4rem;
-            }
         }
         .edit-modal, .update-item-modal, .add-modal{
-            right: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 100%;
+            max-height: 75%;
             overflow-y: scroll;
             .edit-profile-form-container, .update-item-form-container, .add-item-form-container{
                 div{
@@ -182,7 +166,6 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-around;
-            height: 95vh;
             .shopping-item{
                 width: 250px;
                 .item-container{
@@ -234,7 +217,6 @@
             align-items: flex-start;         
         }
         .store{
-            height: 95vh;
             .shopping-item{
                 width: 400px;
                 .item-container{

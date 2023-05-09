@@ -96,7 +96,7 @@ export default function AddItemModal({isAddItemsOpen, openCloseAddItemsModal}: A
                     <input type='number' name='price'/>
                 </div>
                 <div>
-                    image
+                    Image
                     <input type='file' name='imgUrl' onChange={(e) => imageHandler(e)} />
                     {addItemForm.imgUrl !== ''? (
                     <button className='main-button' onClick={(e) => uploadImage(e)}>Upload</button>
