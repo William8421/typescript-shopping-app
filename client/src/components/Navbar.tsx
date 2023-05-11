@@ -2,20 +2,11 @@ import { useShoppingCart } from '../context/shoppingCartContext'
 import { NavLink } from 'react-router-dom'
 import { useUser } from '../context/userContext'
 import {IoCart} from 'react-icons/io5'
-import { useEffect } from 'react'
 
 export default function Navbar() {
   const {openCloseLoginModal, openCloseSignUpModal, switcher, menu, burger, signOut, isLoggedIn, validateToken} = useUser()
 
-  const {openCloseCart, cartQuantity} = useShoppingCart()  
-  function refreshData(){
-    return (
-      <a href='https://typescript-shopping-app.onrender.com'></a>
-    )
-  }
-  useEffect(() => {
-    refreshData()
-  }, [])
+  const {openCloseCart, cartQuantity} = useShoppingCart()
   
   validateToken()
   
