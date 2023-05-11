@@ -1,7 +1,9 @@
 .myProfile-container{
     text-align: center;
-    height: 90vh;
-    color: white;
+    margin: 1rem;
+    h2{
+        color: white;
+    }
     .my-info-container{
         display: flex;
         flex-direction: column;
@@ -9,10 +11,12 @@
         justify-content: space-around;
         height: 10rem;
         width: 100%;
+        color: white;
         .info{
             display: flex;
             justify-content: space-between;
             width: 80%;
+            border-bottom: solid 1px white;
         }
     }
     .edit-profile-container{
@@ -28,6 +32,7 @@
             background-color: white;
             margin: 1rem;
             padding: 1rem;
+            border-radius: 16px;
             img{
                 width: 200px;
                 height: 150px;
@@ -38,6 +43,9 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                span{
+                    color: grey;
+                }
             }
             .edit-item-button-container{
                 margin: 1rem;
@@ -48,10 +56,3 @@
         margin: 1rem;
     }
 }
-
-// button{
-//     border-radius: 6px;
-//     background-color: #0e5b8b;
-//     color: #FDF0D5;
-//     font-size: 1.5rem ;
-// }

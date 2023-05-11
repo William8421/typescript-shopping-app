@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import {ItemsDataProps, SelectedItemProps} from '../types/userTypes'
-import { useShoppingCart } from '../context/shoppingCartContext'
 import { useUser } from '../context/userContext'
 
 type UpdateItemProps = {

@@ -136,8 +136,8 @@ export function UserProvider({children}: UserProviderProps){
         console.log(error);
       }
     }
-
     //============================================================================================================
+
     // update user information
     async function editUserInfo(newInfo: UpdateData) {
       try {
@@ -149,6 +149,7 @@ export function UserProvider({children}: UserProviderProps){
       }
     }
     //============================================================================================================
+
     // get user items
     const [itemsData, setItemsData] = useState<ItemsDataProps[]>([])
     
@@ -156,7 +157,6 @@ export function UserProvider({children}: UserProviderProps){
       await clientAPI.post('/items/useritems', isLoggedIn)
       .then(response => setItemsData(response.data))
     }
-    
     //============================================================================================================
 
     // additem

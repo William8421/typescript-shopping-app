@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { UserDataProps } from '../types/userTypes'
-import { useShoppingCart } from '../context/shoppingCartContext'
 import { useUser } from '../context/userContext'
 
 type EditModalProps = {

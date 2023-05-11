@@ -45,9 +45,7 @@ export default function AddItemModal({isAddItemsOpen, openCloseAddItemsModal}: A
           )
           .then((response) =>
           {
-            setUploaded(response.data.url)
-            console.log('check', response.data.url);
-            
+            setUploaded(response.data.url)            
             setAddItemForm({ ...addItemForm, imgUrl: response.data.url })}
           )
           .catch((err) => {

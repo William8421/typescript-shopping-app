@@ -1,5 +1,5 @@
 import {useEffect, useState } from 'react'
-import {ItemsDataProps, SelectedItemProps} from '../types/userTypes'
+import {SelectedItemProps} from '../types/userTypes'
 import AddItemModal from './AddItemModal';
 import UpdateItem from './UpdateItem';
 import DeleteItemModal from './DeleteItemModal';

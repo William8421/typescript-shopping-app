@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 95vh;
     .about-app, .about-project, .technologies-used{
         width: 390px;
         height: 200px;
@@ -20,7 +21,7 @@
     .about-app{
         h2{
             background-color: white;
-            color: #5b91b2;
+            color: #3a3f98;
             border-radius: 6px;
             width: fit-content;
             padding: .2rem;
@@ -31,7 +32,7 @@
     .about-project{
         h2{
             background-color: white;
-            color: #27678f;
+            color: #3a3f98;
             border-radius: 6px;
             width: fit-content;
             padding: .2rem;
@@ -42,7 +43,7 @@
     .technologies-used{
         h2{
             background-color: white;
-            color: #053d60;
+            color: #3a3f98;
             border-radius: 6px;
             width: fit-content;
             padding: .2rem;

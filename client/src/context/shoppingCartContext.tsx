@@ -21,7 +21,6 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider({children}:
     ShoppingCartProviderProps){
-        // const navigate = useNavigate()
 
         // cart modal
         const [isOpen, setIsOpen] = useState('off')
