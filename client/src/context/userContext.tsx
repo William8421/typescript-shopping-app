@@ -37,7 +37,7 @@ export function UserProvider({children}: UserProviderProps){
     }
     //============================================================================================================
 
-    const clientAPI = axios.create({baseURL: 'http://localhost:8000/'})
+    const clientAPI = axios.create({baseURL: 'http://localhost:8000'})
 
     const isLoggedIn = JSON.parse(localStorage.getItem("user")!)
 
