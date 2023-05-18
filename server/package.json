@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm i",
+    "build": "rimraf dist && tsc",
     "start": "node dist/index.js",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
   },
   "keywords": [],
@@ -22,6 +25,8 @@
     "express-validator": "^6.15.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^5.0.1",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
@@ -30,5 +35,10 @@
     "@types/jsonwebtoken": "^9.0.1",
     "concurrently": "^8.0.1",
     "nodemon": "^2.0.22"
-  }
+  },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+]
 }
