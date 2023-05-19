@@ -1,4 +1,4 @@
-<!-- import techLogos from '../imgs/techLogos-noBg.png' -->
+import techLogos from '../imgs/techLogos-noBg.png'
 export default function About() {
   return (
     <div className="about-container">
@@ -18,7 +18,7 @@ export default function About() {
       <div className="technologies-used">
         <h2>Technologies Used</h2>
         <div>Typescript, MongoDB, Express, React, NodeJs, BCryptJs and JWT.</div>
-<!--         <img className='logos' src={techLogos} alt="logos" /> -->
+          <img className='logos' src={techLogos} alt="logos" />
       </div>
     </div>
   )
