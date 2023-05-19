@@ -22,8 +22,6 @@
     "express-validator": "^6.15.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
-    "pre-commit": "^1.2.2",
-    "rimraf": "^5.0.1",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
