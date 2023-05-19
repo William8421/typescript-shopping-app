@@ -37,7 +37,7 @@ export function UserProvider({children}: UserProviderProps){
     }
     //============================================================================================================
 
-    const clientAPI = axios.create({baseURL: 'https://test-vercel-server-chi.vercel.app'})
+    const clientAPI = axios.create({baseURL: 'https://shopping-cart-server-chi.vercel.app'})
 
     const isLoggedIn = JSON.parse(localStorage.getItem("user")!)
 

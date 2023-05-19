@@ -22,10 +22,6 @@ export default function Store() {
       ))}
     </div>) : (
       <div className="loading-container">
-        <div className="loading-message">
-        due to render.com free tier, data needs a couple of seconds to load.
-        we appreciate your patience
-        </div>
         <img src={loading} alt="loading"/>
     </div>
     )
