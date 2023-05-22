@@ -176,9 +176,7 @@ export function UserProvider({children}: UserProviderProps){
     //============================================================================================================       
 
     //delete item
-    async function removeItem(item: DeleteItemProps) {
-      console.log(item);
-      
+    async function removeItem(item: DeleteItemProps) {      
       try {
         await clientAPI.post('/items/removeitem', item)
       } catch (error) {

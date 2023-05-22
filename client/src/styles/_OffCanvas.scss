@@ -32,10 +32,17 @@
           flex-direction: column;
           align-items: flex-end;
           gap: 1rem;
-          span{
+          .when-empty-container{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            span{
               cursor: pointer;
               color: #0D6EFD;
               text-decoration: underline;
+          }
           }
       }
     }
