@@ -40,7 +40,7 @@ export default function UpdateItem({isUpdateItemModalOpen, openCloseUpdateItemMo
             }
             updateItem(newItemInfo)
             window.location.href = '/myprofile'
-        }
+        }        
       }
   return (
     <div>

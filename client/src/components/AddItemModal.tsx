@@ -37,6 +37,7 @@ export default function AddItemModal({isAddItemsOpen, openCloseAddItemsModal}: A
         formData.append("file", imgSelected);
         formData.append("upload_preset", "WilliamMallak");
         formData.append("upload_name", "denpxdokx");
+        formData.append('folder', 'shopping-cart');
     
         axios
           .post(
@@ -45,8 +46,8 @@ export default function AddItemModal({isAddItemsOpen, openCloseAddItemsModal}: A
           )
           .then((response) =>
           {
-            setUploaded(response.data.url)            
-            setAddItemForm({ ...addItemForm, imgUrl: response.data.url })}
+            setUploaded(response.data.secure_url)            
+            setAddItemForm({ ...addItemForm, imgUrl: response.data.secure_url})}
           )
           .catch((err) => {
             return console.log(err);
