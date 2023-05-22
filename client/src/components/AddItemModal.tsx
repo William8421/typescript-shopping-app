@@ -67,12 +67,16 @@ export default function AddItemModal({isAddItemsOpen, openCloseAddItemsModal}: A
               imgUrl: addItemForm.imgUrl
             }
             AddItem(newItem)
+
+            setTimeout(() => {
+              window.location.href = '/myprofile'
+            }, 1000)
           }
-          window.location.href = '/myprofile'
         } catch (error) {
           console.log(error);
           
         }
+        // window.location.href = '/myprofile'
       }
     
   return (

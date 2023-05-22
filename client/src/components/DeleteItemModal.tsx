@@ -16,7 +16,9 @@ export default function DeleteItemModal({isDeleteItemModalOpen, openCloseDeleteI
               itemName: selectedItem.itemName
             }
             removeItem(item)
-            window.location.href = '/myprofile'
+            setTimeout(() => {
+              window.location.href = '/myprofile'
+            }, 1000)
     }
     
   return (

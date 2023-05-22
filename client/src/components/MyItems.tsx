@@ -20,6 +20,7 @@ export default function MyItems() {
       itemName: ''
     })
     
+    
 
     function openCloseAddItemsModal(): void{
         setIsAddModalOpen(isAddItemsOpen === 'addModalOff'? 'addModalOn' : 'addModalOff')                  

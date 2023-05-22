@@ -39,7 +39,10 @@ export default function UpdateItem({isUpdateItemModalOpen, openCloseUpdateItemMo
               imgUrl: updateItemForm.imgUrl
             }
             updateItem(newItemInfo)
-            window.location.href = '/myprofile'
+            
+            setTimeout(() => {
+              window.location.href = '/myprofile'
+            }, 1000)
         }        
       }
   return (

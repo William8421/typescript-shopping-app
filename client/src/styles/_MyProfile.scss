@@ -28,6 +28,7 @@
     .my-items-sub-container{
         display: flex;
         flex-direction: column;
+        flex-wrap: wrap;
         .my-items-item-container{
             background-color: white;
             margin: 1rem;
