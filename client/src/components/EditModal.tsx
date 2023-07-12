@@ -5,13 +5,13 @@ import { useUser } from '../context/userContext'
 type EditModalProps = {
   isEditModalOpen: string
   openCloseEditModal: () => void
-  userData: UserDataProps
 }
 
 export default function EditModal({ isEditModalOpen, openCloseEditModal }: EditModalProps) {
   const { isLoggedIn, editUserInfo, userData } = useUser()
 
   const [updateForm, setUpdateForm] = useState({
+    id: 0,
     username: '',
     firstName: '',
     lastName: ''
