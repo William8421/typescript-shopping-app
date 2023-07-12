@@ -97,7 +97,7 @@ const getInfo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.body;
     try {
         const user = yield User_1.default.findOne({ id });
-        res.status(200).json([user]);
+        res.status(200).json(user);
     }
     catch (error) {
         res.status(500).json(error);

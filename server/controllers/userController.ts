@@ -119,7 +119,7 @@ export const getInfo = async (req: Request, res: Response) => {
 
   try {
     const user = await User.findOne({id})
-    res.status(200).json([user])
+    res.status(200).json(user)
   } catch (error) {
     res.status(500).json(error)
   }

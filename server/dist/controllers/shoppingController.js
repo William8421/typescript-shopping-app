@@ -27,7 +27,7 @@ const addItems = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         itemId: Id,
         itemName,
         price,
-        imgUrl
+        imgUrl,
     });
     res.status(200).json(newItem);
 });
@@ -40,7 +40,7 @@ exports.getAllItems = getAllItems;
 const getUserItems = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.body;
     const allItems = yield ShoppingItems_1.default.find().populate("owner");
-    const userItems = allItems.filter(item => {
+    const userItems = allItems.filter((item) => {
         return item.owner === id;
     });
     res.status(200).json(userItems);
@@ -52,7 +52,7 @@ const updateItem = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         yield ShoppingItems_1.default.findOneAndUpdate({ itemId }, {
             itemName,
             price,
-            imgUrl
+            imgUrl,
         });
         res.status(200).json(`${itemName} was updated successfully`);
     }
