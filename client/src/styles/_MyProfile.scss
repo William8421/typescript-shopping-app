@@ -1,10 +1,12 @@
-.myProfile-container{
+.myProfile-container {
     text-align: center;
     margin: 1rem;
-    h2{
+
+    h2 {
         color: white;
     }
-    .my-info-container{
+
+    .my-info-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -12,48 +14,56 @@
         height: 10rem;
         width: 100%;
         color: white;
-        .info{
+
+        .info {
             display: flex;
             justify-content: space-between;
             width: 80%;
             border-bottom: solid 1px white;
         }
     }
-    .edit-profile-container{
+
+    .edit-profile-container {
         margin: 1rem;
     }
 }
 
-.my-items-container{
-    .my-items-sub-container{
+.my-items-container {
+    .my-items-sub-container {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        .my-items-item-container{
+
+        .my-items-item-container {
             background-color: white;
             margin: 1rem;
             padding: 1rem;
             border-radius: 16px;
-            img{
+
+            img {
                 width: 200px;
                 height: 150px;
                 object-fit: cover;
                 border-radius: 6px;
             }
-            .my-items-name-price-container{
+
+            .my-items-name-price-container {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                span{
+
+                span {
                     color: grey;
                 }
             }
-            .edit-item-button-container{
+
+            .edit-item-button-container {
                 margin: 1rem;
             }
         }
     }
-    .no-items-yet{
+
+    .no-items-yet {
         margin: 1rem;
     }
 }

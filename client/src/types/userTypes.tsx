@@ -1,7 +1,7 @@
 import { AxiosInstance } from "axios"
 import { ReactNode } from "react"
 
-export type UserProviderProps ={
+export type UserProviderProps = {
     children: ReactNode
 }
 export type UserContext = {
@@ -19,7 +19,7 @@ export type UserContext = {
     signingUp: (userData: SignUpUserDataProps) => Promise<void>
     signOut: () => void
     getUserInfo: () => any
-    userData: UserDataProps[]
+    userData: UserDataProps
     editUserInfo: (newInfo: UpdateData) => Promise<void>
     getUserItems: () => void
     itemsData: ItemsDataProps[]
@@ -47,18 +47,18 @@ export type ItemsDataProps = {
     itemName: string;
     price: number;
     imgUrl: string;
-  }
+}
 
 export type NewItemProps = {
     itemId?: number;
     itemName?: string;
     price?: number;
-    imgUrl?: string;    
-}  
+    imgUrl?: string;
+}
 
 export type SelectedItemProps = {
-  itemID: number
-  itemName: string
+    itemID: number
+    itemName: string
 }
 
 
@@ -76,7 +76,7 @@ export type UpdateData = {
     lastName?: string
 }
 
-export type AddItemProps ={
+export type AddItemProps = {
     userId: number;
     itemName: string;
     price: number;
