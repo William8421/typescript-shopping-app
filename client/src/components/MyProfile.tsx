@@ -13,13 +13,12 @@ export default function MyProfile() {
     setIsEditModalOpen(isEditModalOpen === 'editModalOff' ? 'editModalOn' : 'editModalOff')
   }
 
-  console.log(userData);
-
 
 
   useEffect(() => {
     if (isLoggedIn) {
       getUserInfo()
+
     }
   }, [])
 
@@ -38,7 +37,7 @@ export default function MyProfile() {
       <div className='edit-profile-container'>
         <button className='main-button' onClick={openCloseEditModal}>Edit Profile</button>
       </div>
-      <EditModal isEditModalOpen={isEditModalOpen} openCloseEditModal={openCloseEditModal} userData={userData} />
+      <EditModal isEditModalOpen={isEditModalOpen} openCloseEditModal={openCloseEditModal} />
       <MyItems />
     </div>
   )

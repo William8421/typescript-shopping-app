@@ -8,16 +8,24 @@ type EditModalProps = {
   userData: UserDataProps
 }
 
-export default function EditModal({ isEditModalOpen, openCloseEditModal, userData }: EditModalProps) {
-  const { isLoggedIn, editUserInfo } = useUser()
+export default function EditModal({ isEditModalOpen, openCloseEditModal }: EditModalProps) {
+  const { isLoggedIn, editUserInfo, userData } = useUser()
+
+  const [updateForm, setUpdateForm] = useState({
+    username: '',
+    firstName: '',
+    lastName: ''
+  })
 
 
-  const [updateForm, setUpdateForm] = useState()
 
   function editProfileFormHandler(e: React.ChangeEvent<HTMLInputElement>) {
+
+
     const element = e.target.name;
     const value = e.target.value;
     setUpdateForm((prevState) => {
+      prevState = userData
       return { ...prevState, [element]: value }
     })
   }
