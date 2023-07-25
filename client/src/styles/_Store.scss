@@ -1,10 +1,11 @@
-.store{
+.store {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
     min-height: 95vh;
-    .shopping-item{
+
+    .shopping-item {
         background-color: white;
         display: flex;
         flex-direction: column;
@@ -12,56 +13,62 @@
         width: 350px;
         border-radius: 16px;
         padding: 1rem 0 1rem 0;
-        .item-container{
+
+        .item-container {
             width: 90%;
             display: flex;
             flex-direction: column;
             align-items: center;
             border-radius: 16px 16px 0 0;
             margin-bottom: 1rem;
-           img{
-            object-fit: cover;
-            width: 300px;
-            height: 200px;
-        }
-    
-    
-        .item-info{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            .item-price{
-                color: gray;
+
+            img {
+                object-fit: cover;
+                width: 300px;
+                height: 200px;
             }
-        } 
+
+
+            .item-info {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem;
+
+                .item-price {
+                    color: gray;
+                }
+            }
         }
-        
-        .buttons-container{
+
+        .buttons-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            
-            .adding-container{
+
+            .adding-container {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                .quantity{
+
+                .quantity {
                     padding: 0 1rem;
                 }
             }
         }
     }
 }
-.loading-container{
+
+.loading-container {
     height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    img{
+
+    img {
         width: 10%;
     }
 }
