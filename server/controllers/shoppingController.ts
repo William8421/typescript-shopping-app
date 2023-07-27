@@ -1,9 +1,8 @@
 import { Request, Response } from "express";
 import ShoppingItems from "../models/ShoppingItems";
-import User from "../models/User";
 
 export const addItems = async (req: Request, res: Response) => {
-  const { id, itemName, price, imgUrl, userId } = req.body;
+  const { itemName, price, imgUrl, userId } = req.body;
 
   const allItems = await ShoppingItems.find();
 
@@ -11,10 +10,8 @@ export const addItems = async (req: Request, res: Response) => {
     allItems.reduce((a, b) => {
       return Math.max(a, b.itemId);
     }, 0) + 1;
-
-  const owner = await User.find({ id: userId });
   const newItem = await ShoppingItems.create({
-    owner: owner[0].id,
+    owner: userId,
     itemId: Id,
     itemName,
     price,
@@ -23,19 +20,14 @@ export const addItems = async (req: Request, res: Response) => {
   res.status(200).json(newItem);
 };
 
-export const getAllItems = async (req: Request, res: Response) => {
+export const getAllItems = async (_: Request, res: Response) => {
   const allItems = await ShoppingItems.find();
-
   res.status(200).json(allItems);
 };
 
 export const getUserItems = async (req: Request, res: Response) => {
   const { id } = req.body;
-  const allItems = await ShoppingItems.find().populate("owner");
-  const userItems = allItems.filter((item) => {
-    return item.owner === id;
-  });
-
+  const userItems = await ShoppingItems.find({ owner: id });
   res.status(200).json(userItems);
 };
 

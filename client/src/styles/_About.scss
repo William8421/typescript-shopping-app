@@ -1,4 +1,4 @@
-.about-container{
+.about-container {
     text-align: center;
     margin-top: 3rem;
     padding-top: .5rem;
@@ -6,7 +6,10 @@
     flex-direction: column;
     align-items: center;
     height: 95vh;
-    .about-app, .about-project, .technologies-used{
+
+    .about-app,
+    .about-project,
+    .technologies-used {
         width: 390px;
         height: 200px;
         color: white;
@@ -18,40 +21,19 @@
         align-items: center;
         justify-content: space-around;
     }
-    .about-app{
-        h2{
-            background-color: white;
-            color: #3a3f98;
-            border-radius: 6px;
-            width: fit-content;
-            padding: .2rem;
-            box-shadow: black 3px 3px 6px 0px inset, 
-                        #ffffff80 -3px -3px 6px 1px inset;
-        }
+
+    .about-app h2,
+    .about-project h2,
+    .technologies-used h2 {
+        background-color: white;
+        color: #3a3f98;
+        border-radius: 6px;
+        width: fit-content;
+        padding: .2rem;
+        box-shadow: black 3px 3px 6px 0px inset, #ffffff80 -3px -3px 6px 1px inset;
     }
-    .about-project{
-        h2{
-            background-color: white;
-            color: #3a3f98;
-            border-radius: 6px;
-            width: fit-content;
-            padding: .2rem;
-            box-shadow: black 3px 3px 6px 0px inset, 
-                        #ffffff80 -3px -3px 6px 1px inset;
-        }
-    }
-    .technologies-used{
-        h2{
-            background-color: white;
-            color: #3a3f98;
-            border-radius: 6px;
-            width: fit-content;
-            padding: .2rem;
-            box-shadow: black 3px 3px 6px 0px inset, 
-                        #ffffff80 -3px -3px 6px 1px inset;
-        }
-    }
-    .logos{
+
+    .logos {
         display: none;
     }
 }

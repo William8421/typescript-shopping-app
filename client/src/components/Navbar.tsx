@@ -10,7 +10,9 @@ export default function Navbar() {
   const { openCloseCart, cartQuantity } = useShoppingCart()
 
 
-  validateToken()
+  useEffect(() => {
+    validateToken();
+  }, []);
 
   return (
     <div className='navbar-container'>

@@ -49,12 +49,7 @@ export type ItemsDataProps = {
     imgUrl: string;
 }
 
-export type NewItemProps = {
-    itemId?: number;
-    itemName?: string;
-    price?: number;
-    imgUrl?: string;
-}
+export type NewItemProps = Partial<ItemsDataProps>;
 
 export type SelectedItemProps = {
     itemID: number
@@ -67,14 +62,9 @@ export type UserDataProps = {
     username: string
     firstName: string
     lastName: string
-    email: string
+    email?: string
 }
-export type UpdateData = {
-    id: number
-    username?: string
-    firstName?: string
-    lastName?: string
-}
+export type UpdateData = Partial<UserDataProps>;
 
 export type AddItemProps = {
     userId: number;

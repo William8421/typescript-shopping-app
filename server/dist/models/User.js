@@ -19,13 +19,10 @@ const userSchema = new mongoose_1.Schema({
     id: Number,
 });
 userSchema.statics.findByEmail = function (email) {
-    return this.findOne({ email: email });
+    return this.findOne({ email });
 };
 userSchema.statics.findByUsername = function (username) {
-    return this.findOne({ username: username });
-};
-userSchema.statics.findUserById = function (id) {
-    return this.findOne({ id: id });
+    return this.findOne({ username });
 };
 const User = (0, mongoose_1.model)('User', userSchema);
 exports.default = User;

@@ -3,115 +3,111 @@ import { useUser } from '../context/userContext';
 import axios from 'axios';
 
 type AddItemModalProps = {
-    isAddItemsOpen: string
-    openCloseAddItemsModal: () => void
+  isAddItemsOpen: string
+  openCloseAddItemsModal: () => void
+  triggerRefresh: () => void
 }
 
-export default function AddItemModal({isAddItemsOpen, openCloseAddItemsModal}: AddItemModalProps) {
-  const {isLoggedIn, AddItem} = useUser()
-    const [addItemForm, setAddItemForm] = useState({
-        itemName: '',
-        price: 0,
-        imgUrl: ''
+export default function AddItemModal({ isAddItemsOpen, openCloseAddItemsModal, triggerRefresh }: AddItemModalProps) {
+  const { isLoggedIn, AddItem } = useUser()
+  const [addItemForm, setAddItemForm] = useState({
+    itemName: '',
+    price: 0,
+    imgUrl: ''
+  })
+
+
+  function addItemHandler(e: React.ChangeEvent<HTMLInputElement>): void {
+    const { name, value } = e.target;
+    setAddItemForm((prevState) => {
+      return { ...prevState, [name]: value }
     })
-    
+  }
 
-    function addItemHandler(e: React.ChangeEvent<HTMLInputElement>): void {
-        const element = e.target.name;
-        const value = e.target.value;
-        setAddItemForm((prevState) => {
-          return {...prevState, [element]: value}
-        })
-      }
+  const [imgSelected, setImgSelected] = useState<File | string>('')
+  const [uploaded, setUploaded] = useState('')
 
-      const [imgSelected, setImgSelected] = useState<File | string>('')
-      const [uploaded, setUploaded] = useState('')
+  function imageHandler(e: React.ChangeEvent<HTMLInputElement>): void {
+    const selectedFile = e.target.files?.[0];
+    setImgSelected(selectedFile || '');
+  }
 
-      function imageHandler(e: any){
-        setImgSelected(e.target.files[0])
-      }
+  const uploadImage = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> => {
+    e.preventDefault();
+    if (!(imgSelected instanceof File)) return;
 
-      const uploadImage = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append("file", imgSelected);
-        formData.append("upload_preset", "WilliamMallak");
-        formData.append("upload_name", "denpxdokx");
-        formData.append('folder', 'shopping-cart');
-    
-        axios
-          .post(
-            "https://api.cloudinary.com/v1_1/denpxdokx/image/upload",
-            formData
-          )
-          .then((response) =>
-          {
-            setUploaded(response.data.secure_url)            
-            setAddItemForm({ ...addItemForm, imgUrl: response.data.secure_url})}
-          )
-          .catch((err) => {
-            return console.log(err);
-          });
-      };
-      
+    const formData = new FormData();
+    formData.append('file', imgSelected);
+    formData.append('upload_preset', 'WilliamMallak');
+    formData.append('upload_name', 'denpxdokx');
+    formData.append('folder', 'shopping-cart');
 
-      function submit(e: React.FormEvent) {
-        e.preventDefault()
-        try {
-          if(isLoggedIn){
-    
-            const newItem = {
-              userId: isLoggedIn.id,
-              itemName: addItemForm.itemName,
-              price: addItemForm.price,
-              imgUrl: addItemForm.imgUrl
-            }
-            AddItem(newItem)
+    try {
+      const response = await axios.post('https://api.cloudinary.com/v1_1/denpxdokx/image/upload', formData);
+      setUploaded(response.data.secure_url);
+      setAddItemForm((prevState) => ({ ...prevState, imgUrl: response.data.secure_url }));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-            setTimeout(() => {
-              window.location.href = '/myprofile'
-            }, 1000)
-          }
-        } catch (error) {
-          console.log(error);
-          
+
+  async function submit(e: React.FormEvent) {
+    e.preventDefault()
+    try {
+      if (isLoggedIn) {
+
+        const newItem = {
+          userId: isLoggedIn.id,
+          itemName: addItemForm.itemName,
+          price: addItemForm.price,
+          imgUrl: addItemForm.imgUrl
         }
-        // window.location.href = '/myprofile'
+        await AddItem(newItem)
+        openCloseAddItemsModal()
+        triggerRefresh()
       }
-    
+    } catch (error) {
+      console.error(error);
+
+    }
+  }
+
+  const isFormValid = uploaded && addItemForm.itemName && addItemForm.price
+
   return (
     <div>
       <div className={`add-hidden-div ${isAddItemsOpen}`} onClick={openCloseAddItemsModal}>
       </div>
       <div className={`add-modal ${isAddItemsOpen}`}>
-            <div className='add-modal-header'>
-                <h2>Add Item</h2>
-                <button className='close-button' onClick={openCloseAddItemsModal}>X</button>
+        <div className='add-modal-header'>
+          <h2>Add Item</h2>
+          <button className='close-button' onClick={openCloseAddItemsModal}>X</button>
+        </div>
+        <div onChange={addItemHandler} className='add-item-form-container'>
+          <form onSubmit={submit}>
+            <div>
+              Item Name
+              <input type='text' name='itemName' />
             </div>
-      <div onChange={addItemHandler} className='add-item-form-container'>
-            <form onSubmit={submit}>
-                <div>
-                    Item Name
-                    <input type='text' name='itemName' />
-                </div>
-                <div>
-                    Price
-                    <input type='number' name='price'/>
-                </div>
-                <div>
-                    Image
-                    <input type='file' name='imgUrl' onChange={(e) => imageHandler(e)} />
-                    {addItemForm.imgUrl !== ''? (
-                    <button className='main-button' onClick={(e) => uploadImage(e)}>Upload</button>
-                    ): (<div>please upload image</div>)}
-                </div>
-                {uploaded && addItemForm.itemName && addItemForm.price ? 
-                (<button className='main-button' type='submit' onClick={openCloseAddItemsModal}>Add Item</button>)
-                :
-                (<button style={{backgroundColor: "grey"}} disabled>Add Item</button>)
-                }
-            </form>
+            <div>
+              Price
+              <input type='number' name='price' />
             </div>
+            <div>
+              Image
+              <input type='file' name='imgUrl' onChange={(e) => imageHandler(e)} />
+              {addItemForm.imgUrl !== '' ? (
+                <button className='main-button' onClick={(e) => uploadImage(e)}>Upload</button>
+              ) : (<div>please upload image</div>)}
+            </div>
+            {isFormValid ?
+              (<button className='main-button' type='submit'>Add Item</button>)
+              :
+              (<button disabled >Add Item</button>)
+            }
+          </form>
+        </div>
 
       </div>
     </div>

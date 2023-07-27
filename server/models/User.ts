@@ -1,23 +1,21 @@
 import {Model, Schema, model} from 'mongoose';
 
-interface IUser {
+interface User {
     username: string; 
     firstName: string; 
     lastName: string; 
     email: string; 
     password: string;
-    confirmPassword: string;
-    id: number;
-    name: string;
+    confirmPassword?: string;
+    id?: number;
 }
 
-interface UserModel extends Model<IUser> {
-  findByEmail(email: string): Promise<IUser>;
-  findByUsername(username: string): Promise<IUser>;
-  findUserById(id: string): Promise<IUser>;
+interface UserModel extends Model<User> {
+  findByEmail(email: string): Promise<User | null>;
+  findByUsername(username: string): Promise<User | null>;
 }
 
-const userSchema = new Schema<IUser>({
+const userSchema = new Schema<User>({
     username: { type: String, required: true },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
@@ -36,17 +34,14 @@ const userSchema = new Schema<IUser>({
     id: Number,
 });
 
-userSchema.statics.findByEmail = function (email) {
-  return this.findOne({ email: email });
+userSchema.statics.findByEmail = function (email: string) {
+  return this.findOne({ email });
 };
-userSchema.statics.findByUsername = function (username) {
-  return this.findOne({ username: username });
-};
-
-userSchema.statics.findUserById = function (id) {
-  return this.findOne({id: id})
+userSchema.statics.findByUsername = function (username: string) {
+  return this.findOne({ username });
 };
 
-const User = model<IUser, UserModel>('User', userSchema);
+
+const User = model<User, UserModel>('User', userSchema);
 
 export default User

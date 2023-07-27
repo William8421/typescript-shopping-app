@@ -8,9 +8,10 @@ type UpdateItemProps = {
   openCloseUpdateItemModal: () => void
   data: ItemsDataProps[]
   selectedItem: SelectedItemProps
+  triggerRefresh: () => void
 }
 
-export default function UpdateItem({ isUpdateItemModalOpen, openCloseUpdateItemModal, data, selectedItem }: UpdateItemProps) {
+export default function UpdateItem({ isUpdateItemModalOpen, openCloseUpdateItemModal, data, selectedItem, triggerRefresh }: UpdateItemProps) {
   const { isLoggedIn, updateItem } = useUser()
 
   const itemOldData = data.find(item => item.itemId === selectedItem.itemID)
@@ -22,10 +23,9 @@ export default function UpdateItem({ isUpdateItemModalOpen, openCloseUpdateItemM
   })
 
   function updateItemFormHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    const element = e.target.name;
-    const value = e.target.value;
+    const { name, value } = e.target
     setUpdateItemForm((prevState) => {
-      return { ...prevState, [element]: value }
+      return { ...prevState, [name]: value }
     })
   }
 
@@ -59,7 +59,7 @@ export default function UpdateItem({ isUpdateItemModalOpen, openCloseUpdateItemM
       });
   };
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault()
     if (isLoggedIn) {
 
@@ -69,11 +69,9 @@ export default function UpdateItem({ isUpdateItemModalOpen, openCloseUpdateItemM
         price: updateItemForm.price,
         imgUrl: updateItemForm.imgUrl
       }
-      updateItem(newItemInfo)
-
-      setTimeout(() => {
-        window.location.href = '/myprofile'
-      }, 1000)
+      await updateItem(newItemInfo)
+      openCloseUpdateItemModal()
+      triggerRefresh()
     }
   }
   return (
@@ -102,7 +100,7 @@ export default function UpdateItem({ isUpdateItemModalOpen, openCloseUpdateItemM
                 <button className='main-button' onClick={(e) => uploadImage(e)}>Upload</button>
               ) : (<div>please upload image</div>)}
             </div>
-            <button className='main-button' type='submit' onClick={openCloseUpdateItemModal}>Save</button>
+            <button className='main-button' type='submit'>Save</button>
           </form>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-export type ShoppingCartProviderProps ={
+export type ShoppingCartProviderProps = {
     children: ReactNode
 }
 
@@ -14,7 +14,7 @@ export type shoppingCartContext = {
     emptyCart: () => void
 }
 
-export type CartItem ={ 
+export type CartItem = {
     itemId: number
     quantity: number
 }

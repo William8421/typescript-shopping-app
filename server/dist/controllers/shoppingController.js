@@ -14,16 +14,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.removeItem = exports.updateItem = exports.getUserItems = exports.getAllItems = exports.addItems = void 0;
 const ShoppingItems_1 = __importDefault(require("../models/ShoppingItems"));
-const User_1 = __importDefault(require("../models/User"));
 const addItems = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { id, itemName, price, imgUrl, userId } = req.body;
+    const { itemName, price, imgUrl, userId } = req.body;
     const allItems = yield ShoppingItems_1.default.find();
     const Id = allItems.reduce((a, b) => {
         return Math.max(a, b.itemId);
     }, 0) + 1;
-    const owner = yield User_1.default.find({ id: userId });
     const newItem = yield ShoppingItems_1.default.create({
-        owner: owner[0].id,
+        owner: userId,
         itemId: Id,
         itemName,
         price,
@@ -32,17 +30,14 @@ const addItems = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.status(200).json(newItem);
 });
 exports.addItems = addItems;
-const getAllItems = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const getAllItems = (_, res) => __awaiter(void 0, void 0, void 0, function* () {
     const allItems = yield ShoppingItems_1.default.find();
     res.status(200).json(allItems);
 });
 exports.getAllItems = getAllItems;
 const getUserItems = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.body;
-    const allItems = yield ShoppingItems_1.default.find().populate("owner");
-    const userItems = allItems.filter((item) => {
-        return item.owner === id;
-    });
+    const userItems = yield ShoppingItems_1.default.find({ owner: id });
     res.status(200).json(userItems);
 });
 exports.getUserItems = getUserItems;

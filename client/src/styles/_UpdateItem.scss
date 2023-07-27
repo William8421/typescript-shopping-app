@@ -1,4 +1,4 @@
-.update-item-modal{
+.update-item-modal {
     width: 380px;
     height: 600px;
     position: fixed;
@@ -6,8 +6,10 @@
     right: 0%;
     transform: translate(-5%, -50%);
     display: flex;
-    align-items: center;  
-    .update-item-modal-header{
+    align-items: center;
+    padding-top: 1.7rem;
+
+    .update-item-modal-header {
         background-color: #cd729c;
         display: flex;
         justify-content: space-between;
@@ -19,7 +21,8 @@
         color: black;
         height: 3rem;
     }
-    .update-item-form-container{
+
+    .update-item-form-container {
         background-color: #3a3f98;
         display: flex;
         flex-direction: column;
@@ -27,38 +30,44 @@
         justify-content: center;
         height: 100%;
         font-size: 1.2rem;
-        div{
-            width: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            input{
-                width: 80%;
-                height: 2rem;
-            }
-        }
-        form{
+
+        form {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
-            height: 100%;
+            height: 500px;
 
+            div {
+                width: 250px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                input {
+                    width: 100%;
+                    height: 2rem;
+                    border: none;
+                    border-radius: 6px;
+                }
+            }
         }
     }
 }
 
-.updateItemModalOff{
+.updateItemModalOff {
     display: none;
     opacity: 0;
     transition: .5s ease-in-out;
 }
-.updateItemModalOn{
+
+.updateItemModalOn {
     display: block;
     opacity: 1;
     transition: .5s ease-in-out;
-  }
-  .update-item-hidden-div.updateItemModalOn{
+}
+
+.update-item-hidden-div.updateItemModalOn {
     position: fixed;
     top: 0;
     right: 0;
@@ -66,4 +75,4 @@
     height: 100%;
     background-color: black;
     opacity: .5;
-  }
+}

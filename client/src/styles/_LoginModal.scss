@@ -1,4 +1,4 @@
-.login-modal{
+.login-modal {
     width: 380px;
     height: 250px;
     position: fixed;
@@ -8,7 +8,8 @@
     display: flex;
     align-items: center;
     padding-top: 3rem;
-    .login-modal-header{
+
+    .login-modal-header {
         background-color: #cd729c;
         display: flex;
         justify-content: space-between;
@@ -20,7 +21,8 @@
         color: black;
         height: 3rem;
     }
-    .login-form-container{
+
+    .login-form-container {
         background-color: #3a3f98;
         display: flex;
         flex-direction: column;
@@ -28,26 +30,33 @@
         justify-content: center;
         height: 100%;
         font-size: 1.2rem;
-        
-        form{
+        color: white;
+
+        form {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
             height: 100%;
-            div{
+
+            div {
                 width: 300px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                input{
+
+                input {
                     width: 80%;
                     height: 2rem;
+                    border: none;
+                    border-radius: 6px;
                 }
             }
-            .password-container{
+
+            .password-container {
                 position: relative;
-                .showHidePassword{
+
+                .showHidePassword {
                     position: absolute;
                     top: 55%;
                     right: 15%;
@@ -59,17 +68,19 @@
     }
 }
 
-.loginModalOff{
+.loginModalOff {
     display: none;
     opacity: 0;
     transition: .5s ease-in-out;
 }
-.loginModalOn{
+
+.loginModalOn {
     display: block;
     opacity: 1;
     transition: .5s ease-in-out;
-  }
-  .login-hidden-div.loginModalOn{
+}
+
+.login-hidden-div.loginModalOn {
     position: fixed;
     top: 0;
     right: 0;
@@ -77,4 +88,4 @@
     height: 100%;
     background-color: black;
     opacity: .5;
-  }
+}

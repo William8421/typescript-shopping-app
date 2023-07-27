@@ -4,32 +4,32 @@ const express_1 = require("express");
 const shoppingController_1 = require("../controllers/shoppingController");
 const shoppingItemsRouter = (0, express_1.Router)();
 /**
- * @method POST /items/additems
+ * @route POST /items/additems
  * @desc add shopping items
  * @access Private
  */
 shoppingItemsRouter.post("/additems", shoppingController_1.addItems);
 /**
- * @method POST /items/allitems
+ * @route POST /items/allitems
  * @desc get all items
  * @access Public
  */
 shoppingItemsRouter.get("/allitems", shoppingController_1.getAllItems);
 /**
- * @method POST /items/useritems
+ * @route POST /items/useritems
  * @desc get all user items
  * @access Private
  */
 shoppingItemsRouter.post("/useritems", shoppingController_1.getUserItems);
 /**
- * @method POST /items/updateitems
- * @desc update items
+ * @route PUT /items/updateitem
+ * @desc Update item
  * @access Private
  */
-shoppingItemsRouter.post("/updateitem", shoppingController_1.updateItem);
+shoppingItemsRouter.put("/updateitem", shoppingController_1.updateItem);
 /**
- * @method POST /items/removeitem
- * @desc remove item
+ * @route Post /items/removeitem
+ * @desc Remove item
  * @access Private
  */
 shoppingItemsRouter.post("/removeitem", shoppingController_1.removeItem);

@@ -13,7 +13,7 @@ const userRouter_1 = __importDefault(require("./routes/userRouter"));
 const shoppingItemsRouter_1 = __importDefault(require("./routes/shoppingItemsRouter"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
-const port = process.env.PORT;
+const port = process.env.PORT || 8002;
 app.get('/', (req, res) => {
     res.json('Express + TypeScript Server');
 });
@@ -32,3 +32,4 @@ app.use(express_1.default.json());
 app.use('/test', testRouter_1.default);
 app.use('/user', userRouter_1.default);
 app.use('/items', shoppingItemsRouter_1.default);
+exports.default = app;

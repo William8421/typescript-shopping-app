@@ -175,7 +175,7 @@ export function UserProvider({ children }: UserProviderProps) {
   //updateItem
   async function updateItem(newItemInfo: NewItemProps) {
     try {
-      await clientAPI.post('/items/updateitem', newItemInfo)
+      await clientAPI.put('/items/updateitem', newItemInfo)
     } catch (error) {
       console.log(error);
     }
