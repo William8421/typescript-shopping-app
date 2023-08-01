@@ -47,7 +47,7 @@ export default function ShoppingCart({ isOpen }: ShoppingCartProps) {
               :
               <div className='when-empty-container'>
                 Your cart is empty
-                <span onClick={() => openCloseCart()}>Adding Items</span>
+                <span onClick={() => openCloseCart()}>Start adding items</span>
               </div>
             }
           </div>
