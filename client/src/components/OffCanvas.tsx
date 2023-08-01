@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import { useShoppingCart } from '../context/shoppingCartContext'
 import { useUser } from '../context/userContext'
 import { ItemsDataProps } from '../types/userTypes'
@@ -47,7 +48,9 @@ export default function ShoppingCart({ isOpen }: ShoppingCartProps) {
               :
               <div className='when-empty-container'>
                 Your cart is empty
-                <span onClick={() => openCloseCart()}>Start adding items</span>
+                <span onClick={() => openCloseCart()}>
+                  <NavLink className="navLink" to={'/store'}>Start adding items</NavLink>
+                </span>
               </div>
             }
           </div>
