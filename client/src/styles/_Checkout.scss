@@ -1,0 +1,23 @@
+.checkout-container {
+  padding-top: 3rem;
+  @include COLUMN_ALIGN_CENTER;
+  gap: 1rem;
+  .checkout-form-container {
+    width: 100%;
+    form {
+      @include COLUMN_ALIGN_CENTER;
+      gap: 1rem;
+      .form-group {
+        @include COLUMN_ALIGN_CENTER;
+        width: 100%;
+        input {
+          width: 250px;
+          height: 2rem;
+          border: none;
+          border-radius: 6px;
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+}

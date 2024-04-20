@@ -2,25 +2,26 @@ import { useShoppingCart } from '../context/shoppingCartContext'
 import { NavLink } from 'react-router-dom'
 import { useUser } from '../context/userContext'
 import { IoCart } from 'react-icons/io5'
-import { useEffect } from 'react'
 
 export default function Navbar() {
-  const { openCloseLoginModal, openCloseSignUpModal, switcher, menu, burger, signOut, isLoggedIn, validateToken } = useUser()
+  const { openCloseSignInModal, openCloseSignUpModal, switcher, menu, burger, signOut, isLoggedIn } = useUser()
 
   const { openCloseCart, cartQuantity } = useShoppingCart()
 
-
-  useEffect(() => {
-    validateToken();
-  }, []);
-
   return (
     <div className='navbar-container'>
+      <div className={`backdrop ${menu}`} onClick={switcher}></div>
       <div className='navbar-sub-container'>
+        <div className="bar-button-username">
         <div className='bar-button' onClick={switcher}>
           <div className={`bar top ${burger}`}></div>
           <div className={`bar middle ${burger}`}></div>
           <div className={`bar bottom ${burger}`}></div>
+        </div>
+        {isLoggedIn && <div className='username-container'>
+        <div><NavLink className='username' to='myprofile' >{isLoggedIn.username[0].toUpperCase()}</NavLink></div>
+          </div>}
+        <NavLink className="app-name" to="/"><h2>Shopping App</h2></NavLink>
         </div>
         <div className='pages'>
           <div className={`burger-menu ${menu}`}>
@@ -31,43 +32,16 @@ export default function Navbar() {
             </div>
             <div>
               {!isLoggedIn ? (
-                <div className='signUp-login-container'>
-                  <button onClick={openCloseSignUpModal}>Sign Up</button>
-                  <button onClick={openCloseLoginModal}>Login</button>
+                <div className='signUp-signIn-container'>
+                  <button onClick={openCloseSignUpModal}>Sign up</button>
+                  <button onClick={openCloseSignInModal}>Sign in</button>
                 </div>
               )
                 :
-                (<div className='signUp-login-container'><button onClick={signOut} >Logout</button></div>)
+                (<div className='signUp-signIn-container'><button onClick={signOut} >Logout</button></div>)
               }
             </div>
           </div>
-        </div>
-        <div className='username-container'>
-          {isLoggedIn ? (<div><NavLink className='username' to='myprofile' >{isLoggedIn.username[0].toUpperCase()}</NavLink></div>) : (<div className='no-username'></div>)}
-        </div>
-      </div>
-      <div className='app-name-landscape'>
-        <NavLink className='app-name' to='/'><h2>Shopping App</h2></NavLink>
-        <div className='landscape-username-container'>
-          {isLoggedIn ? (<div><NavLink className='landscape-username' to='myprofile' >{isLoggedIn.username[0].toUpperCase()}</NavLink></div>) : (<div className='landscape-no-username'></div>)}
-        </div>
-      </div>
-
-
-      <div className='landscape-bar'>
-        <NavLink className='landscape-routes' to='/'>Home</NavLink>
-        <NavLink className='landscape-routes' to='/store'>Store</NavLink>
-        <NavLink className='landscape-routes' to='/about'>About</NavLink>
-        <div>
-          {!isLoggedIn ? (
-            <div className='landscape-signUp-login-container'>
-              <button onClick={openCloseSignUpModal}>Sign Up</button>
-              <button onClick={openCloseLoginModal}>Login</button>
-            </div>
-          )
-            :
-            (<div className='landscape-signUp-login-container'><button onClick={signOut} >Logout</button></div>)
-          }
         </div>
       </div>
       <div className='cart-button-div'>

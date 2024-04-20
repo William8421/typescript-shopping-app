@@ -1,26 +1,34 @@
 .home-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 90vh;
-    font-family: 'Lora', serif;
+  @include COLUMN_ALIGN_CENTER;
+  font-family: "Lora", serif;
+  .background {
+    background: url(../imgs/background.jpg) top / cover no-repeat;
+    width: 100%;
+    height: 50vh;
+  }
 
-    .home-app-name {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
-        margin-left: 1rem;
-
-        h2,
-        h1 {
-            text-shadow: 4px 4px 0 #c05abf, 4px 4px 0 #c05abf;
-            color: white;
-        }
+  .home-app-name {
+    @include COLUMN_ALIGN_CENTER;
+    gap: 1rem;
+    text-align: center;
+    width: 80%;
+    h1 {
+      color: $MAIN_COLOR;
+      padding-top: 1rem;
     }
-
     .start-shopping {
-        color: #0D6EFD;
-        text-align: center;
+      text-decoration: none;
+      color: $LIGHT_COLOR;
+      background-color: $MAIN_COLOR;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      animation: start_shopping 1.5s infinite;
     }
+    @keyframes start_shopping {
+      50% {
+        box-shadow: 1px 0px 20px 4px $MAIN_COLOR,
+          inset 0px 0px 10px rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
 }

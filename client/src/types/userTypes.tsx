@@ -8,7 +8,7 @@ export type UserContext = {
     switcher: () => void
     menu: string
     burger: string
-    openCloseLoginModal: () => void
+    openCloseSignInModal: () => void
     openCloseSignUpModal: () => void
     clientAPI: AxiosInstance
     isLoggedIn: UserStorage
@@ -26,6 +26,7 @@ export type UserContext = {
     AddItem: (newItem: AddItemProps) => Promise<void>
     updateItem: (newItemInfo: NewItemProps) => Promise<void>
     removeItem: (item: DeleteItemProps) => Promise<void>
+    errorMessage: string | null
 }
 
 export type SignInUserDataProps = {

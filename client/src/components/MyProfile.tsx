@@ -42,7 +42,7 @@ export default function MyProfile() {
       )}
       <div className='edit-profile-container'>
         <button className='main-button' onClick={openCloseEditModal}>
-          Edit Profile
+          Edit Information
         </button>
       </div>
       <EditModal isEditModalOpen={isEditModalOpen} openCloseEditModal={openCloseEditModal} />

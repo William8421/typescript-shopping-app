@@ -44,14 +44,14 @@ export default function EditModal({ isEditModalOpen, openCloseEditModal }: EditM
 
   return (
     <div >
-      <div className={`edit-hidden-div ${isEditModalOpen}`} onClick={openCloseEditModal}>
+      <div className={`hidden-div ${isEditModalOpen}`} onClick={openCloseEditModal}>
       </div>
-      <div className={`edit-modal ${isEditModalOpen}`}>
-        <div className='edit-modal-header'>
+      <div className={`modal ${isEditModalOpen}`}>
+        <div className='modal-header'>
           <h2>Edit Profile</h2>
           <button className='close-button' onClick={openCloseEditModal}>X</button>
         </div>
-        <div onChange={editProfileFormHandler} className='edit-profile-form-container'>
+        <div onChange={editProfileFormHandler} className='form-container'>
           <form onSubmit={submit} >
             <div>
               New Username

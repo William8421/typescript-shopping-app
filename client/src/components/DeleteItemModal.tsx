@@ -23,17 +23,17 @@ export default function DeleteItemModal({ isDeleteItemModalOpen, openCloseDelete
 
   return (
     <div>
-      <div className={`delete-item-hidden-div ${isDeleteItemModalOpen}`}></div>
-      <div className={`delete-item-modal ${isDeleteItemModalOpen}`}>
-        <div className='delete-item-modal-header'>
+      <div className={`hidden-div ${isDeleteItemModalOpen}`} onClick={openCloseDeleteItemModal}></div>
+      <div className={`modal ${isDeleteItemModalOpen}`}>
+        <div className='modal-header'>
           <h2>Warning</h2>
           <button className='close-button' onClick={openCloseDeleteItemModal}>X</button>
         </div>
-        <div className='delete-item-body'>
-          <div>
+        <div className='form-container'>
+          <div className='delete-modal-body'>
             Are you sure you want to delete {selectedItem.itemName}?
-          </div>
           <button className='main-button' onClick={() => deleteItem()}>Delete</button>
+          </div>
         </div>
       </div>
     </div>

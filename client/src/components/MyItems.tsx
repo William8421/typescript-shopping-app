@@ -70,13 +70,15 @@ export default function MyItems() {
                     <h3>{item.itemName}</h3>
                     <span className="item-price">{formatCurrency(item.price)}</span>
                   </div>
+                  <div className="buttons-container">
                   <div className='edit-item-button-container' onClick={openCloseUpdateItemModal}>
                     <button className='main-button' onClick={(e) => setSelectedItem({ itemID: item.itemId, itemName: item.itemName })}>
-                      Edit Item
+                      Update
                     </button>
                   </div>
                   <div className='delete-item-container' onClick={openCloseDeleteItemModal}>
-                    <button className='main-button' onClick={(e) => setSelectedItem({ itemID: item.itemId, itemName: item.itemName })}>Delete Item</button>
+                    <button className='main-button' onClick={(e) => setSelectedItem({ itemID: item.itemId, itemName: item.itemName })}>Delete</button>
+                  </div>
                   </div>
                 </div>
               )

@@ -1,269 +1,221 @@
-@media(min-width: 800px) and (max-height: 331px){
-    .App{
-        .navbar-container{
-            .navbar-sub-container{
-                display: none;  
-            }
-            .app-name-landscape{
-                font-size: .9rem;
-                .landscape-username-container{
-                    display: flex;
-                    align-items: center;
-                    .landscape-username{
-                        width: 2rem;
-                        height: 2rem;
-                        background-color: #2b2897;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        border-radius: 50%;
-                        text-decoration: none;
-                        color: black;
-                    }
-                    .landscape-no-username{
-                        width: 2.5rem;
-                        height: 2.5rem;
-                    }
-                }
-            }
-            
-            .landscape-bar{
-                display: flex;
-                align-items: center;
-                justify-content: space-between; 
-                width: 50%;
-                .landscape-routes{
-                    text-decoration: none;
-                    color: black;
-                    background-color: #FDF0D5;
-                    border-radius: 6px;
-                    padding: 0 .2rem;
-                }
-                .landscape-signUp-login-container{
-                    display: flex;
-                    gap: 1rem;
-                    button{
-                        border: none;
-                        background-color: #FDF0D5;
-                        font-size: 1rem;
-                        color: black;
-                        font-weight: normal;
-                    }
-                }
-            }
+@media screen and (min-width: $SMALL_SCREEN) {
+  .navbar-container {
+    .navbar-sub-container {
+      .bar-button-username {
+        width: fit-content;
+        .bar-button {
+          display: none;
         }
-        .home-container{
-            flex-direction: row;          
+        .app-name {
+          margin-left: 1rem;
         }
-        .store{
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            .shopping-item{
-                width: 300px;
-                .item-container{
-                    img{
-                        width: 200px;
-                        height: 150px;
-                    }
-                }
-            }
+      }
+      .pages {
+        .burger-menu {
+          position: static;
+          width: 100%;
+          height: 2rem;
+          padding: 0;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
         }
-        .about-container{
-            .technologies-used{
-                .logos{
-                    display: none;
-                }
-            }
+        .routes-container,
+        .signUp-signIn-container {
+          flex-direction: row;
+          gap: 0.5rem;
+          button {
+            font-size: 1rem;
+            text-decoration: underline;
+          }
         }
-        .my-items-container{
-            .my-items-sub-container{
-                flex-direction: row;
-                justify-content: space-around;
-            }
-        }
-        
-        .signUp-modal{
-            max-height: 75%;
-            overflow-y: scroll;
-        }
-        .edit-modal, .update-item-modal, .add-modal{
-            max-height: 75%;
-            overflow-y: scroll;
-            .edit-profile-form-container, .update-item-form-container, .add-item-form-container{
-                div{
-                    input{
-                        width: 150%;
-                    }
-                }
-            }
-        }
+      }
     }
+    .backdrop.on {
+      display: none;
+    }
+  }
+  .home-container {
+    .background {
+      height: 60vh;
+    }
+  }
+  .about-container {
+    .mission {
+      img {
+        height: 60vh;
+        object-fit: cover;
+      }
+      h5 {
+        width: 550px;
+      }
+    }
+    .features-container {
+      width: 450px;
+      h5,
+      p {
+        max-width: 80%;
+      }
+    }
+    .how-it-works-container {
+      width: 60%;
+    }
+    .technologies-used-container {
+      p {
+        width: 80%;
+      }
+    }
+  }
+  .myProfile-container {
+    .my-info-container {
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+  .my-items-container {
+    .my-items-sub-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  .store {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    .shopping-item {
+      min-height: 350px;
+    }
+  }
 }
 
-@media (min-width: 599px){
-    .App{
-        .navbar-container{
-            .navbar-sub-container{
-                display: none;
-            }
-            .app-name-landscape{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 13rem;
-                .landscape-username-container{
-                    display: flex;
-                    align-items: center;
-                    .landscape-username{
-                        width: 2rem;
-                        height: 2rem;
-                        background-color: #9183c0;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        border-radius: 50%;
-                        text-decoration: none;
-                        color: black;
-                    }
-                    .landscape-no-username{
-                        width: 2.5rem;
-                        height: 2.5rem;
-                    }
-                }
-            }
-            .landscape-bar{
-                display: flex;
-                align-items: center;
-                justify-content: space-between; 
-                width: 50%;
-                .landscape-routes{
-                    text-decoration: none;
-                    color: white;
-                    background-color: #131763;
-                    border-radius: 6px;
-                    padding: .2rem .4rem;
-                    font-size: 1.2rem;
-                    box-shadow: -5px 5px 9px 0px black;
-                }
-                .landscape-signUp-login-container{
-                    display: flex;
-                    gap: .5rem;
-                    button{
-                        border: none;
-                        background-color: #131763;
-                        padding: .3rem .4rem;
-                        font-size: 1rem;
-                        color: white;
-                        font-weight: normal;
-                        border-radius: 6px;
-                        box-shadow: -5px 5px 9px 0px black;
-                    }
-                }
-            }
+@media screen and (min-width: $MEDIUM_SCREEN) {
+  .navbar-container {
+    .navbar-sub-container {
+      .burger-menu {
+        .routes-container,
+        .signUp-signIn-container {
+          gap: 1rem;
+          button {
+            font-size: 1.3rem;
+          }
         }
-        .store{
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            .shopping-item{
-                width: 250px;
-                .item-container{
-                    img{
-                        width: 200px;
-                        height: 150px;
-                        object-fit: contain;
-                    }
-                }
-            }
-        }
-        .about-container{
-            .technologies-used{
-                .logos{
-                    display: none;
-                }
-            }
-        }
-        .my-items-container{
-            .my-items-sub-container{
-                flex-direction: row;
-                justify-content: space-around;
-            }
-        }
-        .login-modal, .delete-item-modal{
-            right: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .signUp-modal{
-            right: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 600px;
-        }
-        .edit-modal, .update-item-modal, .add-modal{
-            right: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 600px;
-        }
+      }
     }
+  }
+  .home-container {
+    .background {
+      height: 100vh;
+      background-size: cover;
+      background-position: right;
+      z-index: -1;
+    }
+    .home-app-name {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      gap: 2rem;
+      h1 {
+        font-size: 3rem;
+        text-shadow: 4px 2px 2px $LIGHT_COLOR;
+      }
+      h4 {
+        width: 80%;
+        font-size: 1.5rem;
+        color: $LIGHT_COLOR;
+        text-shadow: 2px 2px 5px $MAIN_COLOR;
+      }
+    }
+  }
+  .about-container {
+    font-size: 1.5rem;
+    .mission {
+      h5 {
+        width: 80%;
+      }
+    }
+    .features-container {
+      width: 70%;
+    }
+  }
+  .myProfile-container {
+    .my-info-container {
+      width: 60%;
+    }
+  }
 }
-
-@media (min-width: 900px){
-    .App{
-        .home-container{
-            height: 90vh;
-            flex-direction: row;
-            align-items: flex-start;         
+@media screen and (min-width: $LARGE_SCREEN) {
+  .navbar-container {
+    .navbar-sub-container {
+      .burger-menu {
+        gap: 1rem;
+        .routes-container,
+        .signUp-signIn-container {
+          gap: 2rem;
         }
-        .store{
-            .shopping-item{
-                width: 400px;
-                .item-container{
-                    img{
-                        width: 300px;
-                        height: 200px;
-                    }
-                }
-            }
-        }
-        .about-container{
-            align-items: flex-start;
-            .about-app, .about-project, .technologies-used{
-                font-size: 1.5rem;
-                margin: 0;
-                border-radius: 0;
-                width: 100%;
-                align-items: flex-start;
-                text-align: left;
-                max-width: 800px;
-                background-color: transparent;
-                box-shadow: none;
-                justify-content: space-around;
-            }
-            .technologies-used{
-                .logos{
-                    display: block;
-                    margin:  1rem 0 0 1rem;
-                }
-            }
-        }
-        .myProfile-container{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            .my-info-container{
-                width: 50rem;
-            }
-        }
-        .my-items-container{
-            .my-items-sub-container{
-                img{
-                    width: 300px;
-                    height: 200px;
-                }
-            }
-        }
+      }
     }
+  }
+  .about-container {
+    padding-top: 0;
+    .features-container {
+      padding: 2rem 0;
+      background: none;
+      color: $DARK_COLOR;
+      text-shadow: none;
+      .features {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        p {
+          @include COLUMN_ALIGN_CENTER;
+          width: 45%;
+          min-height: 180px;
+          text-align: center;
+          background-color: $SECONDARY_BG_COLOR;
+          padding: 1rem;
+          border-radius: 16px;
+        }
+      }
+    }
+    .how-it-works-container {
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        li {
+          background-color: $SECONDARY_BG_COLOR;
+          width: 70%;
+          padding: 1rem;
+          border-radius: 16px;
+        }
+        li:nth-child(even) {
+          align-self: flex-end;
+        }
+      }
+    }
+    .technologies-used-container {
+      img {
+        height: 80vh;
+        object-fit: cover;
+      }
+      .technologies {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        p {
+          width: 45%;
+          min-height: 250px;
+        }
+      }
+    }
+  }
+  .myProfile-container {
+    .my-info-container {
+      width: 50%;
+    }
+  }
 }

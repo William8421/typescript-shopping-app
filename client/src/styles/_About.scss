@@ -1,39 +1,53 @@
 .about-container {
-    text-align: center;
-    margin-top: 3rem;
-    padding-top: .5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 95vh;
-
-    .about-app,
-    .about-project,
-    .technologies-used {
-        width: 390px;
-        height: 200px;
-        color: white;
-        margin: 1rem 0;
-        padding: 1rem;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
+  text-align: center;
+  padding: 3rem 0;
+  @include COLUMN_ALIGN_CENTER;
+  gap: 2rem;
+  font-size: 1.2rem;
+  div {
+    @include COLUMN_ALIGN_CENTER;
+    gap: 1rem;
+  }
+  p,
+  li {
+    text-align: left;
+  }
+  .mission {
+    width: 100%;
+    img {
+      width: 100%;
     }
-
-    .about-app h2,
-    .about-project h2,
-    .technologies-used h2 {
-        background-color: white;
-        color: #3a3f98;
-        border-radius: 6px;
-        width: fit-content;
-        padding: .2rem;
-        box-shadow: black 3px 3px 6px 0px inset, #ffffff80 -3px -3px 6px 1px inset;
+    h5 {
+      padding: 0 10%;
     }
-
-    .logos {
-        display: none;
+  }
+  .features-container {
+    width: 100%;
+    background: url(../imgs/features.png) center / cover no-repeat;
+    text-shadow: 2px 2px 5px $MAIN_COLOR;
+    padding: 0.5rem 0;
+    h5,
+    p {
+      width: 90%;
     }
+  }
+  .how-it-works-container {
+    width: 80%;
+  }
+  .technologies-used-container {
+    img {
+      width: 100%;
+    }
+    h5,
+    p {
+      width: 80%;
+    }
+    p {
+      background-color: $SECONDARY_COLOR;
+      padding: 1rem;
+      border-radius: 16px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    }
+  }
 }

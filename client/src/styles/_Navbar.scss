@@ -1,0 +1,134 @@
+.navbar-container {
+  @include ROW_JUSTIFY_BETWEEN;
+  background-color: $BACKGROUND_COLOR;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 1rem;
+  .navbar-sub-container {
+    @include ROW_JUSTIFY_BETWEEN;
+    width: 100%;
+    .bar-button-username {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      .bar-button {
+        width: 3rem;
+        height: 2.5rem;
+        @include COLUMN_ALIGN_CENTER;
+        justify-content: space-around;
+        .bar {
+          background-color: $DARK_COLOR;
+          height: 5px;
+          border-radius: 10px;
+          width: 80%;
+        }
+        .middle.open {
+          display: none;
+        }
+
+        .top.open {
+          transform: rotateZ(-45deg) translate(-7px, 7px);
+          width: 100%;
+          opacity: 0.5;
+        }
+
+        .bottom.open {
+          transform: rotateZ(45deg) translate(-6.5px, -6.5px);
+          width: 100%;
+          opacity: 0.5;
+        }
+      }
+      .username-container {
+        display: flex;
+        align-items: center;
+        .username {
+          width: 2rem;
+          height: 2rem;
+          background-color: $MAIN_COLOR;
+          @include ROW_JUSTIFY_CENTER;
+          border-radius: 50%;
+          text-decoration: none;
+          color: $LIGHT_COLOR;
+        }
+        .no-username {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+      .app-name {
+        text-decoration: none;
+        color: $DARK_COLOR;
+        text-align: center;
+        margin: 0 auto;
+      }
+    }
+    .pages {
+      .burger-menu {
+        background-color: $BACKGROUND_COLOR;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 1rem;
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 300px;
+        height: 100vh;
+        button {
+          font-size: 1.5rem;
+          background-color: transparent;
+          border: none;
+          color: $MAIN_COLOR;
+        }
+      }
+      .burger-menu.on {
+        left: 0;
+      }
+      .routes-container,
+      .signUp-signIn-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 1rem 0.5rem;
+      }
+    }
+  }
+  .cart-button-div {
+    .cart-button {
+      background-color: transparent;
+      width: 3rem;
+      height: 3rem;
+      position: relative;
+      border: none;
+      margin-left: auto;
+      color: $DARK_COLOR;
+    }
+    .cart-icon {
+      font-size: 2rem;
+    }
+    .shopping-cart {
+      color: $LIGHT_COLOR;
+      width: 1rem;
+      height: 1rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 50%;
+      background-color: #c1121f;
+      font-size: 0.75rem;
+    }
+  }
+  .backdrop.on {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

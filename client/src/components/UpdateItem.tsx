@@ -13,7 +13,7 @@ type UpdateItemProps = {
 
 export default function UpdateItem({ isUpdateItemModalOpen, openCloseUpdateItemModal, data, selectedItem, triggerRefresh }: UpdateItemProps) {
   const { isLoggedIn, updateItem } = useUser()
-
+  
   const itemOldData = data.find(item => item.itemId === selectedItem.itemID)
 
   const [updateItemForm, setUpdateItemForm] = useState({
@@ -76,14 +76,14 @@ export default function UpdateItem({ isUpdateItemModalOpen, openCloseUpdateItemM
   }
   return (
     <div>
-      <div className={`update-item-hidden-div ${isUpdateItemModalOpen}`} onClick={openCloseUpdateItemModal}>
+      <div className={`hidden-div ${isUpdateItemModalOpen}`} onClick={openCloseUpdateItemModal}>
       </div>
-      <div className={`update-item-modal ${isUpdateItemModalOpen}`}>
-        <div className='update-item-modal-header'>
+      <div className={`modal ${isUpdateItemModalOpen}`}>
+        <div className='modal-header'>
           <h2>Update Item</h2>
           <button className='close-button' onClick={openCloseUpdateItemModal}>X</button>
         </div>
-        <div onChange={updateItemFormHandler} className='update-item-form-container'>
+        <div onChange={updateItemFormHandler} className='form-container'>
           <form onSubmit={submit} >
             <div>
               New item Name

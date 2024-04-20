@@ -1,0 +1,34 @@
+$MAIN_COLOR: #21747d;
+$SECONDARY_COLOR: #a8d6e5;
+$BACKGROUND_COLOR: #d2e9e3;
+$SECONDARY_BG_COLOR: #a8d6e5;
+$LIGHT_COLOR: white;
+$DARK_COLOR: black;
+
+@mixin COLUMN_ALIGN_CENTER {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin ROW_JUSTIFY_CENTER {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin ROW_JUSTIFY_BETWEEN {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin ROW_JUSTIFY_AROUND {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+$SMALL_SCREEN: 576px;
+$MEDIUM_SCREEN: 769px;
+$LARGE_SCREEN: 992px;
+$EXTRA_LARGE_SCREEN: 1200px;

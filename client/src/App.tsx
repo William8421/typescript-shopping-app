@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom'
 import MyProfile from './components/MyProfile';
 import { UserProvider } from './context/userContext';
 import About from './pages/About';
+import CheckOut from './components/Checkout';
 
 function App() {
     
@@ -20,6 +21,7 @@ function App() {
       <Route path='/store' element={<Store/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='myprofile' element={<MyProfile/>} />
+      <Route path='checkout' element={<CheckOut/>} />
      </Routes>
      
    </ShoppingCartProvider>

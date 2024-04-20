@@ -77,14 +77,14 @@ export default function AddItemModal({ isAddItemsOpen, openCloseAddItemsModal, t
 
   return (
     <div>
-      <div className={`add-hidden-div ${isAddItemsOpen}`} onClick={openCloseAddItemsModal}>
+      <div className={`hidden-div ${isAddItemsOpen}`} onClick={openCloseAddItemsModal}>
       </div>
-      <div className={`add-modal ${isAddItemsOpen}`}>
-        <div className='add-modal-header'>
+      <div className={`modal ${isAddItemsOpen}`}>
+        <div className='modal-header'>
           <h2>Add Item</h2>
           <button className='close-button' onClick={openCloseAddItemsModal}>X</button>
         </div>
-        <div onChange={addItemHandler} className='add-item-form-container'>
+        <div onChange={addItemHandler} className='form-container'>
           <form onSubmit={submit}>
             <div>
               Item Name

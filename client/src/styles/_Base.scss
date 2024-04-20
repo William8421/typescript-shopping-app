@@ -1,38 +1,43 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    background: url(../imgs/background2croped.jpg) center /cover no-repeat;
-    min-height: 95vh;
-    button{
-        cursor: pointer;
+body {
+  background-color: $BACKGROUND_COLOR;
+  button {
+    cursor: pointer;
+  }
+  .App {
+    // padding-top: 5rem;
+    .close-button {
+      border: none;
+      background-color: transparent;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.2rem;
+      color: $LIGHT_COLOR;
     }
-    .App{
-        margin-top: 5rem;
-        .close-button{
-            border: none;
-            background-color: transparent;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 1.2rem;
-            color: black;
-        }
-        .main-button{
-            color: #131763;
-            background-color: #cd729c;
-            border-radius: 6px;
-            font-size: 1.2rem;
-            padding: .2rem .4rem;
-        }
-        .increase-decrease-buttons{
-            background-color: #cd729c;
-            color: #131763;
-            border-radius: 4px;
-            font-size: 1.5rem;
-            width: 2rem;
-            height: 2rem;
-        }     
+    .main-button {
+      color: $LIGHT_COLOR;
+      background-color: $MAIN_COLOR;
+      border-radius: 6px;
+      font-size: 1.2rem;
+      padding: 0.2rem 0.4rem;
     }
+    .increase-decrease-buttons {
+      background-color: $MAIN_COLOR;
+      color: $LIGHT_COLOR;
+      border-radius: 4px;
+      font-size: 1.5rem;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+.switch-signIn-signUp {
+  color: $MAIN_COLOR;
+  text-decoration: underline;
+  cursor: pointer;
 }
