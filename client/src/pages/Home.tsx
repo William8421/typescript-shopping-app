@@ -12,7 +12,7 @@ export default function Home() {
           experience for all our users. Whether you're here to browse, buy, or
           sell, our platform is designed to meet your needs.
         </h4>
-        <NavLink className="start-shopping" to="/store">
+        <NavLink className="start-shopping" to={"/store"}>
           <h3>Start Shopping</h3>
         </NavLink>
       </div>
